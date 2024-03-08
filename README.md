@@ -7,6 +7,7 @@
   - [1.1 Comparative Analysis of CPUs, GPUs, and TPUs](#11-comparative-analysis-of-cpus-gpus-and-tpus)
   - [1.2 Innovations in Hardware Accelerators for AI](#12-innovations-in-hardware-accelerators-for-ai)
   - [1.3 Cost, Power, and Performance Optimization](#13-cost-power-and-performance-optimization)
+  - [1.4 QA](#14-qa)
 - [2. Distributed Systems for AI](#2-distributed-systems-for-ai)
   - [2.1 Principles of Distributed Computing for AI](#21-principles-of-distributed-computing-for-ai)
   - [2.2 Designing Scalable AI Architectures](#22-designing-scalable-ai-architectures)
@@ -98,7 +99,7 @@ By carefully thinking about the AI needs and the trade-offs of different hardwar
     Ref: https://cloud.google.com/blog/products/compute/performance-per-dollar-of-gpus-and-tpus-for-ai-inference</em>
 </p>
 
-### QA
+### 1.4 QA
 #### Question: What are the primary differences between CPUs, GPUs, and TPUs in AI computing?
 
 <details><summary><em>[Click to expand]</em></summary>
