@@ -1,47 +1,136 @@
-# Large-Scale-AI-Training-Playbook
+# Comprehensive Guide to Mastering Large-Scale AI Training
 
+## Table of Contents
 
-#### Determining the feasible batch sizes and estimating training throughput
+- [Who is this document for?](#who-is-this-document-for)
+- [Why a tuning playbook?](#why-a-tuning-playbook)
+- [Guide for starting a new project](#guide-for-starting-a-new-project)
+    - [Choosing the model architecture](#choosing-the-model-architecture)
+    - [Choosing the optimizer](#choosing-the-optimizer)
+    - [Choosing the batch size](#choosing-the-batch-size)
+    - [Choosing the initial configuration](#choosing-the-initial-configuration)
+- [A scientific approach to improving model performance](#a-scientific-approach-to-improving-model-performance)
+    - [The incremental tuning strategy](#the-incremental-tuning-strategy)
+    - [Exploration vs exploitation](#exploration-vs-exploitation)
+    - [Choosing the goal for the next round of experiments](#choosing-the-goal-for-the-next-round-of-experiments)
+    - [Designing the next round of experiments](#designing-the-next-round-of-experiments)
+    - [Determining whether to adopt a training pipeline change or hyperparameter configuration](#determining-whether-to-adopt-a-training-pipeline-change-or-hyperparameter-configuration)
+    - [After exploration concludes](#after-exploration-concludes)
+- [Determining the number of steps for each training run](#determining-the-number-of-steps-for-each-training-run)
+    - [Deciding how long to train when training is not compute-bound](#deciding-how-long-to-train-when-training-is-not-compute-bound)
+    - [Deciding how long to train when training is compute-bound](#deciding-how-long-to-train-when-training-is-compute-bound)
+- [Additional guidance for the training pipeline](#additional-guidance-for-the-training-pipeline)
+    - [Optimizing the input pipeline](#optimizing-the-input-pipeline)
+    - [Evaluating model performance](#evaluating-model-performance)
+    - [Saving checkpoints and retrospectively selecting the best checkpoint](#saving-checkpoints-and-retrospectively-selecting-the-best-checkpoint)
+    - [Setting up experiment tracking](#setting-up-experiment-tracking)
+    - [Batch normalization implementation details](#batch-normalization-implementation-details)
+    - [Considerations for multi-host pipelines](#considerations-for-multi-host-pipelines)
+- [FAQs](#faqs)
+- [Acknowledgments](#acknowledgments)
+- [Citing](#citing)
+- [Contributing](#contributing)
 
-<details><summary><em>[Click to expand]</em></summary>
+## Who is this document for?
 
-<br>
+(Your content here)
 
--   For a given model and optimizer, there will typically be a range of batch
-    sizes supported by the available hardware. The limiting factor is usually
-    accelerator memory.
--   Unfortunately, it can be difficult to calculate which batch sizes will fit
-    in memory without running, or at least compiling, the full training program.
--   The easiest solution is usually to run training jobs at different batch
-    sizes (e.g. increasing powers of 2) for a small number of steps until one of
-    the jobs exceeds the available memory.
--   For each batch size, we should train for long enough to get a reliable
-    estimate of the *training throughput*
+## Why a tuning playbook?
 
-<p align="center">training throughput = (# examples processed per second)</p>
+(Your content here)
 
-<p align="center">or, equivalently, the <em>time per step</em>.</p>
+## Guide for starting a new project
 
-<p align="center">time per step = (batch size) / (training throughput)</p>
+### Choosing the model architecture
 
--   When the accelerators aren't yet saturated, if the batch size doubles, the
-    training throughput should also double (or at least nearly double).
-    Equivalently, the time per step should be constant (or at least nearly
-    constant) as the batch size increases.
--   If this is not the case then the training pipeline has a bottleneck such as
-    I/O or synchronization between compute nodes. This may be worth diagnosing
-    and correcting before proceeding.
--   If the training throughput increases only up to some maximum batch size,
-    then we should only consider batch sizes up to that maximum batch size, even
-    if a larger batch size is supported by the hardware.
-    -   All benefits of using a larger batch size assume the training throughput
-        increases. If it doesn't, fix the bottleneck or use the smaller batch
-        size.
-    -   **Gradient accumulation** simulates a larger batch size than the
-        hardware can support and therefore does not provide any throughput
-        benefits. It should generally be avoided in applied work.
--   These steps may need to be repeated every time the model or optimizer is
-    changed (e.g. a different model architecture may allow a larger batch size
-    to fit in memory).
+(Your content here)
 
-</details>
+### Choosing the optimizer
+
+(Your content here)
+
+### Choosing the batch size
+
+(Your content here)
+
+### Choosing the initial configuration
+
+(Your content here)
+
+## A scientific approach to improving model performance
+
+### The incremental tuning strategy
+
+(Your content here)
+
+### Exploration vs exploitation
+
+(Your content here)
+
+### Choosing the goal for the next round of experiments
+
+(Your content here)
+
+### Designing the next round of experiments
+
+(Your content here)
+
+### Determining whether to adopt a training pipeline change or hyperparameter configuration
+
+(Your content here)
+
+### After exploration concludes
+
+(Your content here)
+
+## Determining the number of steps for each training run
+
+### Deciding how long to train when training is not compute-bound
+
+(Your content here)
+
+### Deciding how long to train when training is compute-bound
+
+(Your content here)
+
+## Additional guidance for the training pipeline
+
+### Optimizing the input pipeline
+
+(Your content here)
+
+### Evaluating model performance
+
+(Your content here)
+
+### Saving checkpoints and retrospectively selecting the best checkpoint
+
+(Your content here)
+
+### Setting up experiment tracking
+
+(Your content here)
+
+### Batch normalization implementation details
+
+(Your content here)
+
+### Considerations for multi-host pipelines
+
+(Your content here)
+
+## FAQs
+
+(Your content here)
+
+## Acknowledgments
+
+(Your content here)
+
+## Citing
+
+(Your content here)
+
+## Contributing
+
+(Your content here)
