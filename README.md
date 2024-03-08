@@ -92,7 +92,7 @@ Using **virtualization** and **cloud services** allows for more flexibility and 
 By carefully thinking about the AI needs and the trade-offs of different hardware, you can find the best balance of cost, power, and performance.
 
 <p align="center">
-  <img src="asset/_img/ai_hardware_comparison.png" width="50%" alt="AI Hardware Comparison Chart"/>
+  <img src="asset/_img/ai_hardware_comparison.png" width="80%" alt="AI Hardware Comparison Chart"/>
   <br>
   <em>Figure 1: Comparative analysis of CPUs, GPUs, and TPUs across performance, cost, and energy efficiency.</em>
 </p>
