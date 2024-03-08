@@ -98,6 +98,57 @@ By carefully thinking about the AI needs and the trade-offs of different hardwar
     Ref: https://cloud.google.com/blog/products/compute/performance-per-dollar-of-gpus-and-tpus-for-ai-inference</em>
 </p>
 
+### QA
+#### Question: What are the primary differences between CPUs, GPUs, and TPUs in AI computing?
+
+<details><summary><em>[Click to expand]</em></summary>
+
+<br>
+
+CPUs are general-purpose processors with a limited number of cores, making them versatile but slower for complex AI computations. GPUs, initially designed for graphics, excel in parallel processing, allowing for faster execution of AI tasks due to their many cores. TPUs are specifically built for deep learning, offering high efficiency and speed for tensor computations, making them ideal for large-scale AI workloads.
+
+</details>
+
+#### Question: How do FPGAs and ASICs contribute to AI hardware innovations?
+
+<details><summary><em>[Click to expand]</em></summary>
+
+<br>
+
+FPGAs (Field-Programmable Gate Arrays) offer customizable hardware solutions, allowing for specific AI algorithm optimizations and flexibility in deployment. ASICs (Application-Specific Integrated Circuits) are designed exclusively for AI tasks, providing optimal performance for neural network computations at lower power consumptions. Both technologies represent significant advancements in AI hardware by offering specialized capabilities beyond traditional CPUs and GPUs.
+
+</details>
+
+#### Question: What strategies can be employed to optimize the cost, power, and performance of AI compute hardware?
+
+<details><summary><em>[Click to expand]</em></summary>
+
+<br>
+
+Optimizing AI compute hardware involves selecting the right hardware for specific tasks, employing techniques like model quantization to reduce computational requirements, and utilizing virtualization and cloud services for flexible resource management. Additionally, advances in cooling and power management can help reduce operational costs and the environmental impact of AI projects.
+
+</details>
+
+#### Question: Why is choosing the right compute hardware crucial for the success of AI projects?
+
+<details><summary><em>[Click to expand]</em></summary>
+
+<br>
+
+Choosing the appropriate compute hardware is crucial because it directly impacts the efficiency, cost, and overall success of AI projects. The right hardware can significantly accelerate AI model training and inference, reduce energy consumption, and minimize costs, thereby enhancing the feasibility and scalability of AI solutions.
+
+</details>
+
+#### Question: How do energy efficiency considerations affect hardware choice in AI applications?
+
+<details><summary><em>[Click to expand]</em></summary>
+
+<br>
+
+Energy efficiency is a critical consideration in AI hardware choice due to the high computational demands of AI applications. Hardware that provides higher energy efficiency can reduce operational costs and the environmental impact of AI computations, making it an essential factor in selecting CPUs, GPUs, or TPUs for AI tasks.
+
+</details>
+
 
 ### 2. Distributed Systems for AI
 #### 2.1 Principles of Distributed Computing for AI
