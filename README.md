@@ -361,7 +361,27 @@ Regularization techniques are critical for preventing overfitting and ensuring m
             return x
     ```
 
-- **Early Stopping** is implemented by monitoring the validation loss and stopping training when it starts to increase.
+- **Early Stopping** is implemented by monitoring the validation loss and stopping training when it starts to increase. Some code for early stopping:
+
+  ```python
+  best_loss = float('inf')
+  patience = 10
+  trigger_times = 0
+  
+  for epoch in range(max_epochs):
+      # Training loop here
+      val_loss = validate(model, val_loader)
+      
+      if val_loss < best_loss:
+          best_loss = val_loss
+          trigger_times = 0
+      else:
+          trigger_times += 1
+      
+      if trigger_times >= patience:
+          print('Early stopping!')
+          break
+
 
 </details>
 
