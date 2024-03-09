@@ -150,6 +150,7 @@ Energy efficiency is a critical consideration in AI hardware choice due to the h
 
 </details>
 
+---
 
 ## 2. Distributed Systems for AI
 
@@ -162,7 +163,6 @@ Creating scalable AI architectures involves planning systems that can handle inc
 ### 2.3 Optimizing Networking for Distributed Training
 Effective networking is crucial in distributed AI systems since computers need to communicate quickly and reliably. During distributed model training, machines must frequently exchange model data. Slow or unstable networks can bottleneck the entire process. Networking optimization focuses on ensuring quick, reliable data transfer between machines, enhancing the overall efficiency of distributed training.
 
----
 
 #### Q&A Section for Distributed Systems for AI
 
@@ -195,6 +195,8 @@ Key considerations in designing scalable AI architectures include ensuring the s
 To optimize networking for distributed AI training, it's important to ensure fast and reliable communication between the computers involved. This can be achieved through high-speed networking solutions and technologies that enable efficient, secure data transfers and model synchronization across the distributed system.
 
 </details>
+
+---
 
 
 ### 3. Storage Solutions for AI
