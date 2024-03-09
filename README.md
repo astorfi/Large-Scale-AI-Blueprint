@@ -307,6 +307,22 @@ Exploring optimization algorithms beyond the basic Gradient Descent can signific
 
     Adagrad adapts the learning rates of all model parameters by scaling them inversely proportional to the square root of all past squared values of the gradient.
 
+  The following table compares various optimization algorithms that extend beyond the traditional Gradient Descent, highlighting their advantages and ideal scenarios for application in neural network training.
+
+  | **Optimizer** | **Advantages** | **Ideal for Scenario** |
+  |---------------|----------------|------------------------|
+  | **Adam** | Combines the best of AdaGrad and RMSProp with adaptive learning rates. | Most scenarios, particularly effective for large datasets and high-dimensional spaces. |
+  | **RMSprop** | Resolves the diminishing learning rates issue of AdaGrad with per-parameter learning rates. | Online and non-stationary problems where adapting the learning rate is beneficial. |
+  | **Adagrad** | Adapts learning rates to parameters, excellent for sparse data. | Situations with sparse data and when different features vary in significance. |
+  | **Nadam** | Integrates Nesterov momentum into Adam, providing an accelerated gradient. | When faster convergence than Adam is needed and leveraging Nesterov momentum is beneficial. |
+  | **Adadelta** | An extension of Adagrad that seeks to reduce its aggressive, monotonically decreasing learning rate. | Problems that require a more robust approach to parameter updates, especially when fine-tuning. |
+  | **L-BFGS** | A quasi-Newton method that is more memory efficient than the full BFGS algorithm. | Small to medium-sized problems where precise control over model updates is necessary. |
+  | **Conjugate Gradient** | Optimizes using line searches to find optimal step sizes, suitable for sparse problems. | Large-scale problems where the Hessian matrix is sparse and derivative evaluations are costly. |
+  
+  This comparison aims to guide machine learning engineers in selecting the most suitable optimizer based on the specific characteristics and requirements of their training scenarios.
+
+  **NOTE:** Most of the times I start with Adam! Although there are differences, but it's important to start with something and get some initial sense!
+
 </details>
 
 #### 4.2 Regularization and Generalization Techniques
