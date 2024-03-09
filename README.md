@@ -250,6 +250,13 @@ Speed and reliability are key. You need to make sure data can move quickly and w
 
 ## 3. Storage Solutions for AI
 
+<p align="center">
+  <img src="asset/_img/AI-Powered-Storage-Market.jpeg" width="80%" alt="AI Hardware Comparison Chart"/>
+  <br>
+  <em> The growing demand of AI-powered storage and its market. <br> Ref: https://market.us/report/ai-powered-storage-market/</em>
+</p>
+
+
 ### 3.1 Technologies and Patterns for Efficient Data Storage
 When you're knee-deep in AI and ML projects, how you store your data can make or break your day. We're talking about heaps of data here - from raw inputs like images and text to the intricacies of your models. The trick is to keep things organized and accessible without turning your storage system into a digital version of your attic.
 
