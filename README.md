@@ -276,8 +276,16 @@ Speed and scalability in data access are like the tortoise and the hare. You wan
 Distributed file systems offer a middle ground, allowing data to be spread across multiple locations, making it easier to grow and manage. Technologies like **Hadoop’s HDFS** or **Amazon S3** shine in this arena, offering scalability with manageable access speeds.
 
 #### Best Practices:
+
+
+<details><summary><em>[Click to expand]</em></summary>
+
+<br>
+
 - Leverage **in-memory data stores** (like Redis) for hot data to boost access speed.
 - Use **data sharding** to distribute your dataset, making it more manageable and accessible.
+
+</details>
 
 ### 3.3 Choosing Between Cloud and On-Premises Storage
 Cloud vs. On-Premises is the age-old dilemma, kinda like choosing between ordering pizza or making it at home. Cloud storage offers flexibility, scalability, and the joy of not having to maintain physical hardware. Services like AWS, Google Cloud, and Azure are like gourmet pizza places with endless toppings (features) to choose from.
@@ -285,8 +293,15 @@ Cloud vs. On-Premises is the age-old dilemma, kinda like choosing between orderi
 On-premises storage, while more of a hands-on approach, offers control, security, and performance customization. It's like making your pizza, controlling every ingredient, but also needing to clean up afterward.
 
 #### Best Practices:
+
+<details><summary><em>[Click to expand]</em></summary>
+
+<br>
+
 - **Hybrid solutions** can offer the best of both worlds, keeping sensitive data on-premises while leveraging the cloud's scalability for less critical data.
 - Consider **multi-cloud strategies** to avoid vendor lock-in and leverage the best deals and features from multiple providers.
+
+</details>
 
 
 ## Part II: Advanced Model Training Techniques
