@@ -205,7 +205,6 @@ Keeping track of how your network's doing can help spot problems before they get
 
 Keeping your network in top shape means your AI training doesn't get bogged down, keeping everything running smoothly and efficiently.
 
----
 
 #### Q&A Section for Distributed Systems for AI
 
