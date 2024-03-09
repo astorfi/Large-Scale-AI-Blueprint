@@ -396,31 +396,31 @@ Training ultra-large models presents unique challenges, particularly in managing
 
     ```python
     class ModelParallelResNet50(ResNet):
-    def __init__(self, *args, **kwargs):
-        super(ModelParallelResNet50, self).__init__(
-            Bottleneck, [3, 4, 6, 3], num_classes=num_classes, *args, **kwargs)
-
-        self.seq1 = nn.Sequential(
-            self.conv1,
-            self.bn1,
-            self.relu,
-            self.maxpool,
-
-            self.layer1,
-            self.layer2
-        ).to('cuda:0')
-
-        self.seq2 = nn.Sequential(
-            self.layer3,
-            self.layer4,
-            self.avgpool,
-        ).to('cuda:1')
-
-        self.fc.to('cuda:1')
-
-    def forward(self, x):
-        x = self.seq2(self.seq1(x).to('cuda:1'))
-        return self.fc(x.view(x.size(0), -1))
+      def __init__(self, *args, **kwargs):
+          super(ModelParallelResNet50, self).__init__(
+              Bottleneck, [3, 4, 6, 3], num_classes=num_classes, *args, **kwargs)
+  
+          self.seq1 = nn.Sequential(
+              self.conv1,
+              self.bn1,
+              self.relu,
+              self.maxpool,
+  
+              self.layer1,
+              self.layer2
+          ).to('cuda:0')
+  
+          self.seq2 = nn.Sequential(
+              self.layer3,
+              self.layer4,
+              self.avgpool,
+          ).to('cuda:1')
+  
+          self.fc.to('cuda:1')
+  
+      def forward(self, x):
+          x = self.seq2(self.seq1(x).to('cuda:1'))
+          return self.fc(x.view(x.size(0), -1))
 
 - **Data Parallelism**: PyTorch's `DataParallel` allows for the automatic distribution of data and model training across multiple GPUs, aggregating the results to improve training efficiency and manage larger datasets.
 
