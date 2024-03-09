@@ -404,7 +404,7 @@ Training ultra-large models presents unique challenges, particularly in managing
     model.to('cuda')
     ```
 
-- **Gradient Accumulation**: Facilitates training with larger batch sizes than what might be possible due to limited GPU memory. It accumulates gradients over several mini-batches and updates the model weights less frequently.
+- **Gradient Accumulation**: Facilitates training with larger batch sizes than what might be possible due to limited GPU memory. It accumulates gradients over several mini-batches and updates the model weights less frequently. Gradient accumulation is a trick used when we want to train big models on computers that don't have a lot of memory. It's like saving up changes from several small steps and then making one big update all at once. This way, even if your computer can't handle a lot of data at once, you can still train large models by taking smaller steps and adding them up before making a change. It helps make training smoother and allows for working with large models without needing super powerful computers.
 
     ```python
     optimizer.zero_grad()  # Reset gradients accumulation
@@ -435,7 +435,7 @@ Training ultra-large models presents unique challenges, particularly in managing
 
     Federated learning implementations often rely on frameworks specifically designed for distributed computing, such as PySyft for PyTorch.
 
-- **Knowledge Distillation**: The process of transferring knowledge from a large, complex model (teacher) to a smaller, more efficient one (student). This method can significantly compress model size while retaining performance.
+- **Knowledge Distillation**: The process of transferring knowledge from a large, complex model (teacher) to a smaller, more efficient one (student). This method can significantly compress model size at the hope of retaining performance.
 
     ```python
     import torch
@@ -449,9 +449,22 @@ Training ultra-large models presents unique challenges, particularly in managing
         return alpha * hard_loss + (1 - alpha) * soft_loss * (temp ** 2)
     ```
 
+Take a look at the following comparison table:
+
+| Technique | Description | Advantages | Disadvantages | Best for Scenario |
+|-----------|-------------|------------|---------------|-------------------|
+| **Model Parallelism** | Splits the model's layers across multiple devices. | Utilizes multiple GPUs efficiently, allowing larger models to fit in distributed memory. | Communication overhead between devices can slow down training. | Models too large for a single device's memory. |
+| **Data Parallelism** | Distributes data batches across multiple devices, synchronizing gradients. | Easy to implement and scale with frameworks like PyTorch and TensorFlow. | Increased network traffic for gradient synchronization can become a bottleneck. | Training large models where data can be easily partitioned. |
+| **Gradient Accumulation** | Accumulates gradients over multiple mini-batches before performing an update. | Enables training with large effective batch sizes on limited memory. | Slower updates can lead to longer training times. | Limited GPU memory but needing large batch sizes for stability or performance. |
+| **Federated Learning** | Trains models across decentralized devices, aggregating updates centrally. | Enhances privacy and utilizes data from diverse sources without central collection. | Complexity in implementation and managing communication efficiency. | Scenarios prioritizing data privacy and leveraging distributed data sources. |
+| **Knowledge Distillation** | Transfers knowledge from a large model (teacher) to a smaller model (student). | Generates compact models with performance close to large models. | Requires careful tuning and a pre-trained large model. | When deployment constraints require smaller, efficient models. |
+| **Pipeline Parallelism** | Splits the model into segments (stages) executed in pipeline across devices. | Reduces idle time of devices by overlapping computation across stages. | Additional complexity in splitting models and managing pipeline stages. | Extremely large models where both model and data parallelism are insufficient. |
+| **Zero Redundancy Optimizer (ZeRO)** | Optimizes memory usage across distributed settings, reducing redundancies. | Dramatically reduces memory requirements, enabling larger models or batches. | Requires specific implementation and infrastructure support. | Training state-of-the-art models requiring extensive memory optimization. |
+
+
 </details>
 
-These strategies, from leveraging multiple GPUs for parallel processing to utilizing advanced techniques like federated learning and knowledge distillation, enable the training of ultra-large models more effectively and efficiently. Each approach offers unique benefits, from reducing memory constraints to enhancing privacy and model performance.
+These strategies, from leveraging multiple GPUs for parallel processing to utilizing advanced techniques like federated learning and knowledge distillation, enable the training of ultra-large models more effectively and efficiently. 
 
 ---
 
