@@ -159,6 +159,12 @@ Distributed computing's like getting all your friends together to tackle a huge 
 
 ### 2.2 Designing Scalable AI Architectures
 
+<p align="center">
+  <img src="asset/_img/design_scalable_ai_architecture.png" width="80%" alt="AI Hardware Comparison Chart"/>
+  <br>
+  <em> Ref: [https://cloud.google.com/blog/products/compute/performance-per-dollar-of-gpus-and-tpus-for-ai-inference](https://www.exxactcorp.com/blog/Deep-Learning/ai-in-architecture)</em>
+</p>
+
 Making an AI system that can grow without falling over is a bit like planning a city. You've got to think about how to keep traffic flowing and services running no matter how many new buildings pop up.
 
 #### 1. Figuring Out What You Need
