@@ -385,7 +385,7 @@ Regularization techniques are critical for preventing overfitting and ensuring m
 
 </details>
 
-### 4.3 Training Techniques for Ultra-Large Models
+#### 4.3 Training Techniques for Ultra-Large Models
 
 Training ultra-large models presents unique challenges, particularly in managing computational resources and ensuring effective learning.
 
