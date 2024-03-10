@@ -516,7 +516,7 @@ TensorFlow and PyTorch offer comprehensive support for large-scale model trainin
 
 - **Kubernetes**: Optimizes AI workloads deployment and management at scale. [Learn more](https://kubernetes.io/).
 
-#### Additional Frameworks and Tools from NVIDIA, Meta, Google, and Amazon
+#### 5.4 Additional Frameworks and Tools from NVIDIA, Meta, Google, and Amazon
 
 <details><summary><em>[Click to expand]</em></summary>
 <br>
