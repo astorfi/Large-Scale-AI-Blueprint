@@ -518,6 +518,8 @@ TensorFlow and PyTorch offer comprehensive support for large-scale model trainin
 
 #### Additional Frameworks and Tools from NVIDIA, Meta, Google, and Amazon
 
+<details><summary><em>[Click to expand]</em></summary>
+<br>
 - **NVIDIA**:
   - **CUDA, cuDNN**: Accelerate GPU computing and deep learning. [Learn more about CUDA](https://developer.nvidia.com/cuda-zone). [cuDNN](https://developer.nvidia.com/cudnn).
   - **NeMo**: Specializes in speech and NLP model creation. [Learn more](https://developer.nvidia.com/nemo).
@@ -532,6 +534,8 @@ TensorFlow and PyTorch offer comprehensive support for large-scale model trainin
   - Features Amazon SageMaker and AWS Inferentia for scalable model training and deployment. [Amazon SageMaker](https://aws.amazon.com/sagemaker/), [AWS Inferentia](https://aws.amazon.com/machine-learning/inferentia/).
 
 This guide introduces a spectrum of frameworks and tools for managing deep learning models at scale. Selection depends on project-specific needs, from computational demands to model complexity.
+
+</details>
 
 For more info, read [this awsome post](https://neptune.ai/blog/distributed-training-frameworks-and-tools).
 
