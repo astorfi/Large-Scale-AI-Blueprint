@@ -535,6 +535,7 @@ This guide introduces a spectrum of frameworks and tools for managing deep learn
 
 For more info, read [this awsome post](https://neptune.ai/blog/distributed-training-frameworks-and-tools).
 
+---
 
 ### 6. Model Scaling and Efficient Processing
 #### 6.1 Approaches to Model and Data Parallelism
