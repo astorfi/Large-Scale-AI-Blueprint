@@ -536,6 +536,11 @@ Scaling machine learning models efficiently is crucial for handling larger datas
 **Model Parallelism** involves splitting a model's architecture across multiple computing resources, allowing different parts of the model to be processed in parallel. This is used for very large models we cannot fit the entire model into the memory of a single device. Key considerations include:
 
 - **Partitioning Strategy**: Models can be split vertically (layer-wise) or horizontally (within layers). Effective partitioning minimizes cross-device communication.
+
+  <details><summary><em>[Click to expand]</em></summary>
+
+  <br>
+  
   ```python
     import torch
     import torch.nn as nn
@@ -587,7 +592,13 @@ Scaling machine learning models efficiently is crucial for handling larger datas
   
   # Now x contains the output of the model, and you can use it for loss computation, etc.
 
+</details>
+
 - **Communication Overhead**: Use efficient communication protocols and compression techniques to reduce latency.
+
+  <details><summary><em>[Click to expand]</em></summary>
+
+  <br>
 
   PyTorch's distributed package (`torch.distributed`) supports multiple backends for inter-process communication (IPC), such as MPI, Gloo, and NCCL. NCCL (NVIDIA Collective Communications Library) is particularly optimized for GPU-to-GPU communication and is recommended when training on multi-GPU setups.
 
@@ -603,8 +614,14 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     world_size = 4
     for i in range(world_size):
         init_process(rank=i, size=world_size, backend='nccl')
+
+  </details>
   
 - **Dependency Management**: Synchronize operations to handle inter-layer dependencies without significant delays.
+
+  <details><summary><em>[Click to expand]</em></summary>
+
+  <br>
 
     We need some effective synchronization to make sure that data dependencies between layers or model parts processed on different devices are managed to avoid bottlenecks. PyTorch provides this mechanism to synchronize operations. You can use `torch.cuda.synchronize()`, to ensure that all preceding CUDA operations are completed before proceeding.
 
@@ -622,9 +639,16 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     device2 = torch.device('cuda:2')
     synchronize_devices([device1, device2])
 
+  </details>
+
 **Data Parallelism** distributes data across multiple processors to train the same model in parallel, each with a subset of the data. It's effective for training on large datasets. Key aspects include:
 
 - **Batch Distribution**: Evenly dividing data batches across all processors to ensure balanced workload.
+
+  <details><summary><em>[Click to expand]</em></summary>
+
+  <br>
+  
   A balanced workload across processors prevents any single processor from becoming a bottleneck due to uneven task distribution. It ensures that all processors complete their assigned computations approximately at the same time, which makes everything more efficient in terms of parallel processing. PyTorch's `DataLoader` combined with `DistributedSampler` provides a simple way to distribute batches of data across multiple processors in a distributed training setup. Example:
 
   ```python
@@ -668,9 +692,16 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     for batch in dataloader:
         # Process your batch
 
+</details>
+  
 - **Gradient Aggregation**: After forward and backward passes, gradients are aggregated (often using AllReduce algorithms) across all instances to update the model consistently.
-  AllReduce is a collective communication operation where all participating processors contribute data (gradients in this case), and the aggregated result (e.g., the sum of all gradients) is distributed back to all processors. This ensures that every processor updates its model parameters with the same values, maintaining consistency and convergence of the model during training:
+  AllReduce is a collective communication operation where all participating processors contribute data (gradients in this case), and the aggregated result (e.g., the sum of all gradients) is distributed back to all processors. This ensures that 
+ every processor updates its model parameters with the same values, maintaining consistency and convergence of the model during training:
 
+  <details><summary><em>[Click to expand]</em></summary>
+
+  <br>
+  
   PyTorch's distributed package (`torch.distributed`) provides built-in support for AllReduce operations, simplifying the implementation of gradient aggregation. Here's an example of how to perform gradient aggregation across multiple GPUs using PyTorch:
 
   ```python
@@ -711,7 +742,13 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     # Gradient aggregation is automatically handled by DDP
     optimizer.step()
 
+</details>
+
 - **Scalability**: Efficient scaling requires minimizing the communication bottleneck, often achieved through optimized networking hardware or gradient compression techniques.
+
+  <details><summary><em>[Click to expand]</em></summary>
+
+  <br>
 
   Potetally you can consider gradient compression toreduce the size of the data that needs to be transferred, which hopefully reduce the bandwidth requirements. Techniques such as quantization, sparsification, and low-rank approximation can significantly reduce the volume of gradient data during synchronization. Though those technieque are not just useful here.
 
@@ -733,6 +770,8 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     # Example usage
     # Assuming `model` is a PyTorch model that has gone through backward pass
     quantize_gradients(model, bits=8)
+
+  </details>
 
 
 #### 6.2 Techniques for Efficient Batch Processing
