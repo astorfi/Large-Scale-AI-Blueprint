@@ -603,6 +603,22 @@ Scaling machine learning models efficiently is crucial for handling larger datas
   # Now x contains the output of the model, and you can use it for loss computation, etc.
 
 - **Communication Overhead**: Use efficient communication protocols and compression techniques to reduce latency.
+
+  PyTorch's distributed package (`torch.distributed`) supports multiple backends for inter-process communication (IPC), such as MPI, Gloo, and NCCL. NCCL (NVIDIA Collective Communications Library) is particularly optimized for GPU-to-GPU communication and is recommended when training on multi-GPU setups.
+
+  ```python
+  import torch
+  import torch.distributed as dist
+  
+  def init_process(rank, size, backend='nccl'):
+      """ Initialize the distributed environment. """
+      dist.init_process_group(backend, rank=rank, world_size=size)
+  
+  # Example initialization for a distributed training job with 4 GPUs
+  world_size = 4
+  for i in range(world_size):
+      init_process(rank=i, size=world_size, backend='nccl')
+  
 - **Dependency Management**: Synchronize operations to handle inter-layer dependencies without significant delays.
 
 **Data Parallelism** distributes data across multiple processors to train the same model in parallel, each with a subset of the data. It's effective for training on large datasets. Key aspects include:
