@@ -741,11 +741,16 @@ Efficient batch processing is essential for maximizing throughput and reducing t
 
 - **Dynamic Batching**: Adjust batch sizes based on the computational capabilities of the hardware and the complexity of the data to maintain high utilization without exceeding memory constraints.
 
+  <details><summary><em>[Click to expand]</em></summary>
+
+  <br>
+
   Dynamic Batching offers several benefits:
 
   - **Improved Resource Utilization**: By adjusting batch sizes to match hardware capabilities, dynamic batching can make better use of computational resources, leading to faster training times.
   - **Memory Efficiency**: It helps in managing the memory footprint by preventing out-of-memory errors that can occur with large batch sizes on limited-memory devices.
   - **Adaptability**: Can adapt to varying data complexities and different computational environments, making it suitable for a wide range of training scenarios.
+  <details>
 
 - **Mixed Precision Training**: Utilizes both 16-bit (half precision) and 32-bit (single precision) floating-point operations to speed up computation and reduce memory usage while maintaining model accuracy.
 
