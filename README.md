@@ -389,11 +389,8 @@ Regularization techniques are critical for preventing overfitting and ensuring m
 
 Training ultra-large models presents unique challenges, particularly in managing computational resources and ensuring effective learning.
 
-<details><summary><em>[Click to expand]</em></summary>
-<br>
-
 - **Model Parallelism**: Splits a model across multiple GPUs, allowing different parts of the model to be processed in parallel. This technique requires a deliberate division of the model's architecture across the available hardware.
-    <details><summary><em>[Click to expand]</em></summary>
+
     ```python
     class ModelParallelResNet50(ResNet):
       def __init__(self, *args, **kwargs):
@@ -421,7 +418,7 @@ Training ultra-large models presents unique challenges, particularly in managing
       def forward(self, x):
           x = self.seq2(self.seq1(x).to('cuda:1'))
           return self.fc(x.view(x.size(0), -1))
-</details>
+
 
 - **Data Parallelism**: PyTorch's `DataParallel` allows for the automatic distribution of data and model training across multiple GPUs, aggregating the results to improve training efficiency and manage larger datasets.
 
@@ -432,10 +429,10 @@ Training ultra-large models presents unique challenges, particularly in managing
     model = DataParallel(model)
     model.to('cuda')
     ```
-    </details>
+
 
 - **Gradient Accumulation**: Facilitates training with larger batch sizes than what might be possible due to limited GPU memory. It accumulates gradients over several mini-batches and updates the model weights less frequently. Gradient accumulation is a trick used when we want to train big models on computers that don't have a lot of memory. It's like saving up changes from several small steps and then making one big update all at once. This way, even if your computer can't handle a lot of data at once, you can still train large models by taking smaller steps and adding them up before making a change. It helps make training smoother and allows for working with large models without needing super powerful computers.
-    <details><summary><em>[Click to expand]</em></summary>
+
     ```python
     optimizer.zero_grad()  # Reset gradients accumulation
     for i, (inputs, labels) in enumerate(training_set):
@@ -446,11 +443,10 @@ Training ultra-large models presents unique challenges, particularly in managing
             optimizer.step()
             optimizer.zero_grad()
     ```
-    </details>
+
 
 - **Federated Learning**: A training approach that allows for model training across multiple decentralized devices or servers while keeping the data localized. This method is particularly useful for privacy-preserving models.
 
-    <details><summary><em>[Click to expand]</em></summary>
     ```python
     # Pseudo-code for federated learning setup
     # Note: Federated learning requires a more complex setup than can be fully represented in a simple code snippet.
@@ -464,7 +460,6 @@ Training ultra-large models presents unique challenges, particularly in managing
         # Aggregate updates
         model.set_weights(aggregate(model_updates))
     ```
-    </details>
 
     Federated learning implementations often rely on frameworks specifically designed for distributed computing, such as PySyft for PyTorch.
 
