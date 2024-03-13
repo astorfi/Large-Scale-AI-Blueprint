@@ -715,24 +715,24 @@ Scaling machine learning models efficiently is crucial for handling larger datas
 
   Potetally you can consider gradient compression toreduce the size of the data that needs to be transferred, which hopefully reduce the bandwidth requirements. Techniques such as quantization, sparsification, and low-rank approximation can significantly reduce the volume of gradient data during synchronization. Though those technieque are not just useful here.
 
-```python
-  import torch
-
-  def quantize_gradients(model, bits=8):
-      """Quantize the gradients to a specified number of bits."""
-      quantization_level = 2 ** bits - 1
-      for param in model.parameters():
-          if param.grad is not None:
-              grad = param.grad.data
-              max_val = torch.max(grad)
-              min_val = torch.min(grad)
-              grad = (grad - min_val) / (max_val - min_val) * quantization_level
-              grad = torch.round(grad) / quantization_level * (max_val - min_val) + min_val
-              param.grad.data = grad
+  ```python
+    import torch
   
-  # Example usage
-  # Assuming `model` is a PyTorch model that has gone through backward pass
-  quantize_gradients(model, bits=8)
+    def quantize_gradients(model, bits=8):
+        """Quantize the gradients to a specified number of bits."""
+        quantization_level = 2 ** bits - 1
+        for param in model.parameters():
+            if param.grad is not None:
+                grad = param.grad.data
+                max_val = torch.max(grad)
+                min_val = torch.min(grad)
+                grad = (grad - min_val) / (max_val - min_val) * quantization_level
+                grad = torch.round(grad) / quantization_level * (max_val - min_val) + min_val
+                param.grad.data = grad
+    
+    # Example usage
+    # Assuming `model` is a PyTorch model that has gone through backward pass
+    quantize_gradients(model, bits=8)
 
 
 #### 6.2 Techniques for Efficient Batch Processing
