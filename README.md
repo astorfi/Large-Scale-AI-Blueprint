@@ -278,9 +278,6 @@ But, using on-premises storage means you're in control. You decide exactly how t
 
 Exploring optimization algorithms beyond the basic Gradient Descent can significantly improve model training efficiency and performance.
 
-<details><summary><em>[Click to expand]</em></summary>
-<br>
-
 - **Adam Optimization**:
 
     ```python
@@ -322,8 +319,7 @@ Exploring optimization algorithms beyond the basic Gradient Descent can signific
   This comparison aims to guide machine learning engineers in selecting the most suitable optimizer based on the specific characteristics and requirements of their training scenarios.
 
   **NOTE:** Most of the times I start with Adam! Although there are differences, but it's important to start with something and get some initial sense!
-
-</details>
+  
 
 #### 4.2 Regularization and Generalization Techniques
 
