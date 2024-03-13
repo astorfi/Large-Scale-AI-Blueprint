@@ -278,6 +278,9 @@ But, using on-premises storage means you're in control. You decide exactly how t
 
 Exploring optimization algorithms beyond the basic Gradient Descent can significantly improve model training efficiency and performance.
 
+<details><summary><em>[Click to expand]</em></summary>
+<br>
+
 - **Adam Optimization**:
 
     ```python
@@ -319,11 +322,15 @@ Exploring optimization algorithms beyond the basic Gradient Descent can signific
   This comparison aims to guide machine learning engineers in selecting the most suitable optimizer based on the specific characteristics and requirements of their training scenarios.
 
   **NOTE:** Most of the times I start with Adam! Although there are differences, but it's important to start with something and get some initial sense!
-  
+
+</details>
 
 #### 4.2 Regularization and Generalization Techniques
 
 Regularization techniques are critical for preventing overfitting and ensuring models generalize well to new data.
+
+<details><summary><em>[Click to expand]</em></summary>
+<br>
 
 - **L2 Regularization with Weight Decay**:
 
@@ -375,9 +382,14 @@ Regularization techniques are critical for preventing overfitting and ensuring m
           print('Early stopping!')
           break
 
+</details>
+
 #### 4.3 Training Techniques for Ultra-Large Models
 
 Training ultra-large models presents unique challenges, particularly in managing computational resources and ensuring effective learning.
+
+<details><summary><em>[Click to expand]</em></summary>
+<br>
 
 - **Model Parallelism**: Splits a model across multiple GPUs, allowing different parts of the model to be processed in parallel. This technique requires a deliberate division of the model's architecture across the available hardware.
 
@@ -482,6 +494,8 @@ Take a look at the following comparison table:
 
 
 These strategies, from leveraging multiple GPUs for parallel processing to utilizing advanced techniques like federated learning and knowledge distillation, enable the training of ultra-large models more effectively and efficiently. 
+
+</details>
 
 ---
 
