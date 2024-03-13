@@ -621,6 +621,22 @@ Scaling machine learning models efficiently is crucial for handling larger datas
   
 - **Dependency Management**: Synchronize operations to handle inter-layer dependencies without significant delays.
 
+ Weeneed some effective synchronization to make sure that data dependencies between layers or model parts processed on different devices are managed to avoid bottlenecks. PyTorch provides this mechanism to synchronize operations. You can use `torch.cuda.synchronize()`, to ensure that all preceding CUDA operations are completed before proceeding.
+
+  ```python
+  import torch
+  
+  def synchronize_devices(devices):
+      """ Synchronize all operations across multiple devices. """
+      for device in devices:
+          if 'cuda' in str(device):
+              torch.cuda.synchronize(device)
+  
+  # Example usage with two devices
+  device1 = torch.device('cuda:0')
+  device2 = torch.device('cuda:2')
+  synchronize_devices([device1, device2])
+
 **Data Parallelism** distributes data across multiple processors to train the same model in parallel, each with a subset of the data. It's effective for training on large datasets. Key aspects include:
 
 - **Batch Distribution**: Evenly dividing data batches across all processors to ensure balanced workload.
