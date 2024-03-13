@@ -552,53 +552,53 @@ Scaling machine learning models efficiently is crucial for handling larger datas
 
 - **Partitioning Strategy**: Models can be split vertically (layer-wise) or horizontally (within layers). Effective partitioning minimizes cross-device communication.
   ```python
-  import torch
-  import torch.nn as nn
-  import torch.optim as optim
-  
-  # Define a simple model
-  class SimpleModel(nn.Module):
-      def __init__(self):
-          super(SimpleModel, self).__init__()
-          self.layer1 = nn.Linear(10, 20)
-          self.relu = nn.ReLU()
-          self.layer2 = nn.Linear(20, 10)
-          self.layer3 = nn.Linear(10, 5)
-  
-      def forward(self, x):
-          x = self.layer1(x)
-          x = self.relu(x)
-          x = self.layer2(x)
-          x = self.relu(x)
-          x = self.layer3(x)
-          return x
-  
-  # Instantiate the model
-  model = SimpleModel()
-  
-  # Assume we have two devices, 'cuda:0' and 'cuda:1'
-  device1 = torch.device('cuda:0')
-  device2 = torch.device('cuda:1')
-  
-  # Split the model
-  # Part 1 (layers to run on device 1)
-  model.layer1.to(device1)
-  model.relu.to(device1)  # Assuming we want the ReLU after layer1 to also be on device1
-  # Part 2 (layers to run on device 2)
-  model.layer2.to(device2)
-  model.layer3.to(device2)
-  
-  # Example input tensor
-  x = torch.randn(1, 10).to(device1)
-  
-  # Forward pass through the model across devices
-  # Manually move tensors between devices
-  x = model.layer1(x)
-  x = model.relu(x)
-  x = x.to(device2)  # Move to device2 before continuing through the model
-  x = model.layer2(x)
-  x = model.relu(x)
-  x = model.layer3(x)
+    import torch
+    import torch.nn as nn
+    import torch.optim as optim
+    
+    # Define a simple model
+    class SimpleModel(nn.Module):
+        def __init__(self):
+            super(SimpleModel, self).__init__()
+            self.layer1 = nn.Linear(10, 20)
+            self.relu = nn.ReLU()
+            self.layer2 = nn.Linear(20, 10)
+            self.layer3 = nn.Linear(10, 5)
+    
+        def forward(self, x):
+            x = self.layer1(x)
+            x = self.relu(x)
+            x = self.layer2(x)
+            x = self.relu(x)
+            x = self.layer3(x)
+            return x
+    
+    # Instantiate the model
+    model = SimpleModel()
+    
+    # Assume we have two devices, 'cuda:0' and 'cuda:1'
+    device1 = torch.device('cuda:0')
+    device2 = torch.device('cuda:1')
+    
+    # Split the model
+    # Part 1 (layers to run on device 1)
+    model.layer1.to(device1)
+    model.relu.to(device1)  # Assuming we want the ReLU after layer1 to also be on device1
+    # Part 2 (layers to run on device 2)
+    model.layer2.to(device2)
+    model.layer3.to(device2)
+    
+    # Example input tensor
+    x = torch.randn(1, 10).to(device1)
+    
+    # Forward pass through the model across devices
+    # Manually move tensors between devices
+    x = model.layer1(x)
+    x = model.relu(x)
+    x = x.to(device2)  # Move to device2 before continuing through the model
+    x = model.layer2(x)
+    x = model.relu(x)
+    x = model.layer3(x)
   
   # Now x contains the output of the model, and you can use it for loss computation, etc.
 
@@ -607,35 +607,35 @@ Scaling machine learning models efficiently is crucial for handling larger datas
   PyTorch's distributed package (`torch.distributed`) supports multiple backends for inter-process communication (IPC), such as MPI, Gloo, and NCCL. NCCL (NVIDIA Collective Communications Library) is particularly optimized for GPU-to-GPU communication and is recommended when training on multi-GPU setups.
 
   ```python
-  import torch
-  import torch.distributed as dist
-  
-  def init_process(rank, size, backend='nccl'):
-      """ Initialize the distributed environment. """
-      dist.init_process_group(backend, rank=rank, world_size=size)
-  
-  # Example initialization for a distributed training job with 4 GPUs
-  world_size = 4
-  for i in range(world_size):
-      init_process(rank=i, size=world_size, backend='nccl')
+    import torch
+    import torch.distributed as dist
+    
+    def init_process(rank, size, backend='nccl'):
+        """ Initialize the distributed environment. """
+        dist.init_process_group(backend, rank=rank, world_size=size)
+    
+    # Example initialization for a distributed training job with 4 GPUs
+    world_size = 4
+    for i in range(world_size):
+        init_process(rank=i, size=world_size, backend='nccl')
   
 - **Dependency Management**: Synchronize operations to handle inter-layer dependencies without significant delays.
 
- Weeneed some effective synchronization to make sure that data dependencies between layers or model parts processed on different devices are managed to avoid bottlenecks. PyTorch provides this mechanism to synchronize operations. You can use `torch.cuda.synchronize()`, to ensure that all preceding CUDA operations are completed before proceeding.
+    We need some effective synchronization to make sure that data dependencies between layers or model parts processed on different devices are managed to avoid bottlenecks. PyTorch provides this mechanism to synchronize operations. You can use `torch.cuda.synchronize()`, to ensure that all preceding CUDA operations are completed before proceeding.
 
   ```python
-  import torch
-  
-  def synchronize_devices(devices):
-      """ Synchronize all operations across multiple devices. """
-      for device in devices:
-          if 'cuda' in str(device):
-              torch.cuda.synchronize(device)
-  
-  # Example usage with two devices
-  device1 = torch.device('cuda:0')
-  device2 = torch.device('cuda:2')
-  synchronize_devices([device1, device2])
+    import torch
+    
+    def synchronize_devices(devices):
+        """ Synchronize all operations across multiple devices. """
+        for device in devices:
+            if 'cuda' in str(device):
+                torch.cuda.synchronize(device)
+    
+    # Example usage with two devices
+    device1 = torch.device('cuda:0')
+    device2 = torch.device('cuda:2')
+    synchronize_devices([device1, device2])
 
 **Data Parallelism** distributes data across multiple processors to train the same model in parallel, each with a subset of the data. It's effective for training on large datasets. Key aspects include:
 
