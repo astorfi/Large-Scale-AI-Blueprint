@@ -329,9 +329,6 @@ Exploring optimization algorithms beyond the basic Gradient Descent can signific
 
 Regularization techniques are critical for preventing overfitting and ensuring models generalize well to new data.
 
-<details><summary><em>[Click to expand]</em></summary>
-<br>
-
 - **L2 Regularization with Weight Decay**:
 
     ```python
@@ -381,9 +378,6 @@ Regularization techniques are critical for preventing overfitting and ensuring m
       if trigger_times >= patience:
           print('Early stopping!')
           break
-
-
-</details>
 
 #### 4.3 Training Techniques for Ultra-Large Models
 
@@ -465,7 +459,6 @@ Training ultra-large models presents unique challenges, particularly in managing
 
 - **Knowledge Distillation**: The process of transferring knowledge from a large, complex model (teacher) to a smaller, more efficient one (student). This method can significantly compress model size at the hope of retaining performance.
 
-    <details><summary><em>[Click to expand]</em></summary>
     ```python
     import torch
     import torch.nn.functional as F
@@ -477,7 +470,6 @@ Training ultra-large models presents unique challenges, particularly in managing
                              reduction='batchmean')
         return alpha * hard_loss + (1 - alpha) * soft_loss * (temp ** 2)
     ```
-    </details>
 
 Take a look at the following comparison table:
 
@@ -492,7 +484,6 @@ Take a look at the following comparison table:
 | **Zero Redundancy Optimizer (ZeRO)** | Optimizes memory usage across distributed settings, reducing redundancies. | Dramatically reduces memory requirements, enabling larger models or batches. | Requires specific implementation and infrastructure support. | Training state-of-the-art models requiring extensive memory optimization. |
 
 
-</details>
 
 These strategies, from leveraging multiple GPUs for parallel processing to utilizing advanced techniques like federated learning and knowledge distillation, enable the training of ultra-large models more effectively and efficiently. 
 
@@ -519,9 +510,6 @@ TensorFlow and PyTorch offer comprehensive support for large-scale model trainin
 - **Kubernetes**: Optimizes AI workloads deployment and management at scale. [Learn more](https://kubernetes.io/).
 
 #### 5.4 Additional Frameworks and Tools from NVIDIA, Meta, Google, and Amazon
-
-<details><summary><em>[Click to expand]</em></summary>
-<br>
   
 - **NVIDIA**:
   - **CUDA, cuDNN**: Accelerate GPU computing and deep learning. [Learn more about CUDA](https://developer.nvidia.com/cuda-zone). [cuDNN](https://developer.nvidia.com/cudnn).
@@ -538,7 +526,6 @@ TensorFlow and PyTorch offer comprehensive support for large-scale model trainin
 
 This guide introduces a spectrum of frameworks and tools for managing deep learning models at scale. Selection depends on project-specific needs, from computational demands to model complexity.
 
-</details>
 
 For more info, read [this awsome post](https://neptune.ai/blog/distributed-training-frameworks-and-tools).
 
