@@ -154,14 +154,14 @@ As things get bigger, making sure all your data and AI smarts stay accurate and 
 
 Planning for growth in AI systems is a bit like a giant puzzle where the picture keeps getting bigger. It's a challenge, but with the right approach, you can build a setup that grows with you.
 
-<p align="center">
-  <img src="asset/_img/optimizing-networking-distributed-training.png" width="80%" alt="AI Hardware Comparison Chart"/>
-</p>
-
 
 ### 2.3 Optimizing Networking for Distributed Training
 
 When you're training AI models across several computers, making sure they can talk to each other without any hiccups is super important. Here's how you keep the conversation flowing:
+
+<p align="center">
+  <img src="asset/_img/optimizing-networking-distributed-training.png" width="80%" alt="AI Hardware Comparison Chart"/>
+</p>
 
 #### 1. Tackling Network Hiccups
 First off, you gotta figure out what might slow things down. Delays, not having enough room for all the data, or bits of data getting lost can really throw a wrench in the works.
