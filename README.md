@@ -913,24 +913,7 @@ Getting efficient inference to work on a large scale is super important when we'
   
   <br>
   
-  **Static model quantization**
-  
   ```python
-    # Static model quantization
-    import torch
-    from torchvision.models import resnet18
-    from torch.quantization import quantize_jit
-    
-    model = resnet18(pretrained=True)
-    model.eval()
-    
-    # Specify quantization configuration
-    # Convert to quantized model
-    quantized_model = torch.quantization.quantize_dynamic(
-        model, {torch.nn.Linear}, dtype=torch.qint8
-    )
-    
-    print(quantized_model)
   
     # Dynamic Model Quantization
     import torch
@@ -950,9 +933,74 @@ Getting efficient inference to work on a large scale is super important when we'
 
 - **Post-Training vs. Quantization-Aware Training (QAT)**: Post-training quantization applies quantization after model training (may have more performance drop due to the blind precision reduction), whereas QAT simulates lower precision during training, often resulting in higher accuracy for the quantized model because the as it is obvious from its name, the model is aware of what we want and try to learn better with limited prevision.
 
+  <details><summary><em>[Click to expand]</em></summary>
+  
+  <br>
+  
+  ```python
+  
+    import torch
+    import torch.nn as nn
+    import torch.quantization
+    
+    model = resnet18(pretrained=True)
+    model.train()
+    
+    # Fuse Conv, bn and relu
+    model = torch.quantization.fuse_modules(model, [['conv1', 'bn1', 'relu']])
+    
+    # Prepare model for QAT
+    model.qconfig = torch.quantization.get_default_qat_qconfig('fbgemm')
+    
+    torch.quantization.prepare_qat(model, inplace=True)
+    
+    # Some training code here
+    # ...
+    
+    torch.quantization.convert(model, inplace=True)
+    print(model)
+
+  
+</details>
+
 **Model Pruning** removes less important parameters from a model, either by zeroing out weights (sparisity enforcement on weights) or entirely removing certain neurons/channels.
 
 - **Structured vs. Unstructured Pruning**: Structured pruning removes entire channels or filters, simplifying deployment but often requiring retraining. Unstructured pruning zeroes individual weights, which can maximize efficiency but may require specialized hardware or software to exploit the sparsity. These appraoches can also be done dynamically in the training.
+
+<details><summary><em>[Click to expand]</em></summary>
+  
+  <br>
+  
+  ```python
+
+    # Unstructred model pruning
+    import torch
+    import torch.nn.utils.prune as prune
+    import torch.nn as nn
+    
+    model = nn.Sequential(nn.Linear(10, 100), nn.ReLU(), nn.Linear(100, 2))
+    parameter_to_prune = ((model[0], 'weight'), (model[2], 'weight'))
+    
+    prune.global_unstructured(
+        parameters_to_prune,
+        pruning_method=prune.L1Unstructured,
+        amount=0.2,
+    )
+    
+    print(model)
+    
+    # Structred model pruning
+    import torch
+    import torch.nn.utils.prune as prune
+    import torch.nn as nn
+    
+    model = nn.Sequential(nn.Linear(10, 100), nn.ReLU(), nn.Linear(100, 2))
+    prune.ln_structured(model[0], name='weight', amount=0.5, n=2, dim=0)
+    
+    print(model)
+
+  
+</details>
 
 #### 7.2 Optimizing Models for Inference on Different Platforms
 
