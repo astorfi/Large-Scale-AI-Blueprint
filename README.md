@@ -960,7 +960,8 @@ Balancing latency and throughput often involves trade-offs. Here's how you might
           # Here, send 'output' wherever it needs to go
           input_queue.task_done()
 
-In this simplified PyTorch example, we're setting up a system that can adjust how it handles requests based on the current load. This kind of setup allows you to manage throughput by batching requests together, without letting latency shoot through the roof. It's a basic illustration, but the principles apply: monitor your system's performance and adjust in real-time to keep both latency and throughput in check.
+
+*In this simplified PyTorch example, we're setting up a system that can adjust how it handles requests based on the current load.* This kind of setup allows you to manage throughput by batching requests together, without letting latency shoot through the roof. It's a basic illustration, but the principles apply: monitor your system's performance and adjust in real-time to keep both latency and throughput in check.
 
 Remember, the goal here is not just fast responses or handling massive loads, but finding the sweet spot where your application does both well enough to meet your users' needs.
 
