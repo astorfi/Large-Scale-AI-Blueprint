@@ -81,15 +81,15 @@ AI is changing the world, and knowing how to scale AI models is more important t
 
 ### 1. Compute Hardware for AI
 
-Choosing the right hardware is crucial for AI projects because it affects how fast, expensive, and efficient these projects are. In this section, we talk about different types of hardware like CPUs, GPUs, and TPUs, look at new developments in AI hardware, and discuss how to make AI projects cost-effective and energy-efficient.
+Choosing the right hardware is very important for any AI projects because it affects how fast, expensive, and efficient the projects will be. In this section, we talk about different types of hardware like CPUs, GPUs, and TPUs, look at new developments in AI hardware, and discuss how to make AI projects cost- and energy-efficient.
 
 #### 1.1 Comparative Analysis of CPUs, GPUs, and TPUs
 
 AI computing needs a lot of data processing and calculations. **CPUs** (Central Processing Units) are general computers' brains that can do many tasks but might be slow for deep learning because they don't have many cores to do tasks at the same time.
 
-**GPUs** (Graphics Processing Units) were first made for video games and graphics but are now key for AI because they can do many calculations at once, making them much faster for AI tasks than CPUs.
+**GPUs** (Graphics Processing Units) were first made for video games and graphics but are now key for AI because they can do many calculations at once, because they are much faster for AI tasks than CPUs.
 
-**TPUs** (Tensor Processing Units) are made by Google specifically for deep learning. They're really good at doing many tasks at once and save a lot of energy, which makes them great for big AI tasks.
+**TPUs** (Tensor Processing Units) are made by Google specifically for deep learning. They're really good at doing many tasks at once and save a lot of energy, which makes them great for big AI tasks. [https://cloud.google.com/tpu](https://cloud.google.com/tpu)
 
 Each type of hardware is good for different things, so the best choice depends on what the AI needs to do, how much money you have, and how much energy you want to use.
 
