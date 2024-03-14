@@ -131,7 +131,7 @@ Distributed computing's like getting all your friends together to tackle a huge 
 Making an AI system that can grow without falling over is a bit like planning a city. You've got to think about how to keep traffic flowing and services running no matter how many new buildings pop up.
 
 <p align="center">
-  <img src="asset/_img/diagram_design_architecture" width="80%" alt="AI Hardware Comparison Chart"/>
+  <img src="asset/_img/diagram_design_architecture.png" width="80%" alt="AI Hardware Comparison Chart"/>
 </p>
 
 #### 1. Figuring Out What You Need
