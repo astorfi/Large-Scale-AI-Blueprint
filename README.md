@@ -79,11 +79,11 @@ AI is changing the world, and knowing how to scale AI models is more important t
 
 ## Part I: Systems and Hardware for AI
 
-## 1. Compute Hardware for AI
+### 1. Compute Hardware for AI
 
 Choosing the right hardware is crucial for AI projects because it affects how fast, expensive, and efficient these projects are. In this section, we talk about different types of hardware like CPUs, GPUs, and TPUs, look at new developments in AI hardware, and discuss how to make AI projects cost-effective and energy-efficient.
 
-### 1.1 Comparative Analysis of CPUs, GPUs, and TPUs
+#### 1.1 Comparative Analysis of CPUs, GPUs, and TPUs
 
 AI computing needs a lot of data processing and calculations. **CPUs** (Central Processing Units) are general computers' brains that can do many tasks but might be slow for deep learning because they don't have many cores to do tasks at the same time.
 
@@ -93,13 +93,13 @@ AI computing needs a lot of data processing and calculations. **CPUs** (Central 
 
 Each type of hardware is good for different things, so the best choice depends on what the AI needs to do, how much money you have, and how much energy you want to use.
 
-### 1.2 Innovations in Hardware Accelerators for AI
+#### 1.2 Innovations in Hardware Accelerators for AI
 
 To meet AI's growing demand, there are new types of hardware being made. These include special chips and systems that help AI applications run faster. For example, **FPGAs** (Field-Programmable Gate Arrays) are customizable and can be tuned for specific AI tasks, offering a lot of flexibility.
 
 New designs like **ASICs** (Application-Specific Integrated Circuits) are made just for AI and can do neural network tasks really well without using a lot of power. Big companies are always improving their hardware to support complicated AI models, making them faster and able to handle more data.
 
-### 1.3 Cost, Power, and Performance Optimization
+#### 1.3 Cost, Power, and Performance Optimization
 
 To save money and energy in AI projects, it's important to pick the right hardware. Using strategies like **model quantization**, which makes the data models use less precision without losing accuracy, can help reduce the amount of power and computing needed.
 
