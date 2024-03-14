@@ -940,7 +940,7 @@ When your machine learning model hits production, especially in real-time applic
 
 Balancing latency and throughput often involves trade-offs. Here's how you might dynamically adjust batch sizes in PyTorch to manage these trade-offs in a real-time application scenario:
 
-```python
+  ```python
   import torch
   from queue import Queue
   from threading import Thread
