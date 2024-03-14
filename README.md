@@ -165,33 +165,16 @@ Keeping your network in top shape means your AI training doesn't get bogged down
 
 #### Question: Why's distributed computing a big deal for AI?
 
-<details><summary><em>[Click to expand]</em></summary>
-
-<br>
-
 It's all about teamwork. With distributed computing, multiple computers work on the AI task together, making the whole process faster and more efficient. It's like having a whole team tackling a project instead of just one person.
 
-</details>
 
 #### Question: What's the secret sauce in designing scalable AI systems?
 
-<details><summary><em>[Click to expand]</em></summary>
-
-<br>
-
 Planning ahead for growth is crucial. You need the right mix of tech that can handle more work without breaking a sweat, and strategies to make sure different parts of your AI can work together as things scale up.
-
-</details>
 
 #### Question: How do you stop your network from being a bottleneck in AI training?
 
-<details><summary><em>[Click to expand]</em></summary>
-
-<br>
-
 Speed and reliability are key. You need to make sure data can move quickly and without interruptions, which might mean using better networks, keeping your machines close, or choosing faster ways to send data around.
-
-</details>
 
 
 ---
@@ -212,9 +195,6 @@ Speed and reliability are key. You need to make sure data can move quickly and w
 
 Storing AI and ML data is a big deal. We need smart ways to keep our data because it helps us build the future. The way we store data must be strong for today and ready for more data tomorrow.
 
-<details><summary><em>[Click to expand]</em></summary>
-<br>
-
 **Object Storage** is great when you have a lot of data. It's like a huge storage space that never runs out. You don't have to worry about organizing it too much, just keep adding your data.
 
 **File Systems** are more traditional. They're good when you want to keep your data in order, like keeping files in folders. They work best for smaller projects.
@@ -223,50 +203,32 @@ Storing AI and ML data is a big deal. We need smart ways to keep our data becaus
 - **SQL Databases** (like PostgreSQL, MySQL) are for when your data is related and needs to stay organized. They're good for complex tasks where you need to find and manage your data carefully.
 - **NoSQL Databases** (like MongoDB, Cassandra) are more flexible and can handle lots of data that's spread out. They're great for big data projects or when your data changes a lot.
 
-</details>
-
 #### Best Practices for Advanced Data Storage
 
 It's not just about the tools; it's how you use them that matters.
-
-<details><summary><em>[Click to expand]</em></summary>
-<br>
 
 - **Data Lakes** are for keeping all your raw data. It's like having a big tank where you throw everything in and sort it out later.
 - **Data Warehousing** is for when your data is cleaned and ready to use. Think of it as a library where everything is organized and easy to find.
 - **Data Versioning** helps keep track of changes, which is super important when you update your models.
 - **Hybrid Storage Solutions** mix different storage types. You use fast storage for the data you need all the time and cheaper storage for the rest. This way, you save money but still get to your data quickly when needed.
 
-</details>
-
-
 ### 3.2 Balancing Speed and Scalability in Data Access
 Fast access to data is crucial, especially when working on AI models. But as your data grows, you need to keep everything running smoothly.
-
-<details><summary><em>[Click to expand]</em></summary>
-<br>
 
 #### Best Practices:
 
 - **In-memory data stores** like Redis are perfect for the data you use all the time. They keep your data ready to use at lightning speed.
 - **Data sharding** splits your data so no single part gets overwhelmed. It's like having several smaller, quicker lines at a store checkout instead of one long one.
 
-</details>
-
 ### 3.3 Choosing Between Cloud and On-Premises Storage
 It's like deciding whether to eat out or cook at home. Cloud storage gives you lots of options and flexibility without the hassle of looking after the hardware. AWS, Google Cloud, and Azure offer lots of services to fit what you need.
 
 But, using on-premises storage means you're in control. You decide exactly how things are set up, but you also have to take care of everything.
 
-<details><summary><em>[Click to expand]</em></summary>
-<br>
-
 #### Best Practices:
 
 - **Hybrid solutions** give you the best of both. Keep sensitive stuff safely on your own servers and use the cloud for everything else.
 - **Multi-cloud strategies** let you use services from different providers so you're not stuck with one. It's like having menus from a bunch of restaurants to choose from.
-
-</details>
 
 ---
 
@@ -277,9 +239,6 @@ But, using on-premises storage means you're in control. You decide exactly how t
 #### 4.1 Advanced Optimization Algorithms Beyond Gradient Descent
 
 Exploring optimization algorithms beyond the basic Gradient Descent can significantly improve model training efficiency and performance.
-
-<details><summary><em>[Click to expand]</em></summary>
-<br>
 
 - **Adam Optimization**:
 
@@ -323,14 +282,9 @@ Exploring optimization algorithms beyond the basic Gradient Descent can signific
 
   **NOTE:** Most of the times I start with Adam! Although there are differences, but it's important to start with something and get some initial sense!
 
-</details>
-
 #### 4.2 Regularization and Generalization Techniques
 
 Regularization techniques are critical for preventing overfitting and ensuring models generalize well to new data.
-
-<details><summary><em>[Click to expand]</em></summary>
-<br>
 
 - **L2 Regularization with Weight Decay**:
 
@@ -382,14 +336,9 @@ Regularization techniques are critical for preventing overfitting and ensuring m
           print('Early stopping!')
           break
 
-</details>
-
 #### 4.3 Training Techniques for Ultra-Large Models
 
 Training ultra-large models presents unique challenges, particularly in managing computational resources and ensuring effective learning.
-
-<details><summary><em>[Click to expand]</em></summary>
-<br>
 
 - **Model Parallelism**: Splits a model across multiple GPUs, allowing different parts of the model to be processed in parallel. This technique requires a deliberate division of the model's architecture across the available hardware.
 
@@ -495,8 +444,6 @@ Take a look at the following comparison table:
 
 These strategies, from leveraging multiple GPUs for parallel processing to utilizing advanced techniques like federated learning and knowledge distillation, enable the training of ultra-large models more effectively and efficiently. 
 
-</details>
-
 ---
 
 ### 5. Frameworks and Tools for Large-Scale Training
@@ -550,10 +497,6 @@ Scaling machine learning models efficiently is crucial for handling larger datas
 **Model Parallelism** involves splitting a model's architecture across multiple computing resources, allowing different parts of the model to be processed in parallel. This is used for very large models we cannot fit the entire model into the memory of a single device. Key considerations include:
 
 - **Partitioning Strategy**: Models can be split vertically (layer-wise) or horizontally (within layers). Effective partitioning minimizes cross-device communication.
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
   
   ```python
     import torch
@@ -606,13 +549,7 @@ Scaling machine learning models efficiently is crucial for handling larger datas
   
   # Now x contains the output of the model, and you can use it for loss computation, etc.
 
-</details>
-
 - **Communication Overhead**: Use efficient communication protocols and compression techniques to reduce latency.
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
 
   PyTorch's distributed package (`torch.distributed`) supports multiple backends for inter-process communication (IPC), such as MPI, Gloo, and NCCL. NCCL (NVIDIA Collective Communications Library) is particularly optimized for GPU-to-GPU communication and is recommended when training on multi-GPU setups.
 
@@ -628,14 +565,8 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     world_size = 4
     for i in range(world_size):
         init_process(rank=i, size=world_size, backend='nccl')
-
-  </details>
   
 - **Dependency Management**: Synchronize operations to handle inter-layer dependencies without significant delays.
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
 
     We need some effective synchronization to make sure that data dependencies between layers or model parts processed on different devices are managed to avoid bottlenecks. PyTorch provides this mechanism to synchronize operations. You can use `torch.cuda.synchronize()`, to ensure that all preceding CUDA operations are completed before proceeding.
 
@@ -653,15 +584,9 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     device2 = torch.device('cuda:2')
     synchronize_devices([device1, device2])
 
-  </details>
-
 **Data Parallelism** distributes data across multiple processors to train the same model in parallel, each with a subset of the data. It's effective for training on large datasets. Key aspects include:
 
 - **Batch Distribution**: Evenly dividing data batches across all processors to ensure balanced workload.
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
   
   A balanced workload across processors prevents any single processor from becoming a bottleneck due to uneven task distribution. It ensures that all processors complete their assigned computations approximately at the same time, which makes everything more efficient in terms of parallel processing. PyTorch's `DataLoader` combined with `DistributedSampler` provides a simple way to distribute batches of data across multiple processors in a distributed training setup. Example:
 
@@ -705,16 +630,10 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     
     for batch in dataloader:
         # Process your batch
-
-</details>
   
 - **Gradient Aggregation**: After forward and backward passes, gradients are aggregated (often using AllReduce algorithms) across all instances to update the model consistently.
   AllReduce is a collective communication operation where all participating processors contribute data (gradients in this case), and the aggregated result (e.g., the sum of all gradients) is distributed back to all processors. This ensures that 
  every processor updates its model parameters with the same values, maintaining consistency and convergence of the model during training:
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
   
   PyTorch's distributed package (`torch.distributed`) provides built-in support for AllReduce operations, simplifying the implementation of gradient aggregation. Here's an example of how to perform gradient aggregation across multiple GPUs using PyTorch:
 
@@ -756,13 +675,7 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     # Gradient aggregation is automatically handled by DDP
     optimizer.step()
 
-</details>
-
 - **Scalability**: Efficient scaling requires minimizing the communication bottleneck, often achieved through optimized networking hardware or gradient compression techniques.
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
 
   Potetally you can consider gradient compression toreduce the size of the data that needs to be transferred, which hopefully reduce the bandwidth requirements. Techniques such as quantization, sparsification, and low-rank approximation can significantly reduce the volume of gradient data during synchronization. Though those technieque are not just useful here.
 
@@ -785,8 +698,6 @@ Scaling machine learning models efficiently is crucial for handling larger datas
     # Assuming `model` is a PyTorch model that has gone through backward pass
     quantize_gradients(model, bits=8)
 
-  </details>
-
 
 #### 6.2 Techniques for Efficient Batch Processing
 
@@ -794,23 +705,13 @@ Efficient batch processing is essential for maximizing throughput and reducing t
 
 - **Dynamic Batching**: Adjust batch sizes based on the computational capabilities of the hardware and the complexity of the data to maintain high utilization without exceeding memory constraints.
 
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
-
   Dynamic Batching offers several benefits:
 
   - **Improved Resource Utilization**: By adjusting batch sizes to match hardware capabilities, dynamic batching can make better use of computational resources, leading to faster training times.
   - **Memory Efficiency**: It helps in managing the memory footprint by preventing out-of-memory errors that can occur with large batch sizes on limited-memory devices.
   - **Adaptability**: Can adapt to varying data complexities and different computational environments, making it suitable for a wide range of training scenarios.
-  
-  </details>
 
 - **Mixed Precision Training**: Utilizes both 16-bit (half precision) and 32-bit (single precision) floating-point operations to speed up computation and reduce memory usage while maintaining model accuracy.
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
 
   #### Advantages of Mixed Precision Training
 
@@ -850,13 +751,7 @@ Efficient batch processing is essential for maximizing throughput and reducing t
         # Updates the scale for next iteration
         scaler.update()
 
-  </details>
-
 - **Gradient Accumulation**: Allows the simulation of larger batches by accumulating gradients over multiple forward and backward passes, enabling the training of models larger than the memory capacity of a single device.
-
-  <details><summary><em>[Click to expand]</em></summary>
-
-  <br>
 
   #### Benefits of Gradient Accumulation
 
@@ -882,8 +777,6 @@ Efficient batch processing is essential for maximizing throughput and reducing t
     # Updating the model only after all batch accumultion
     optimizer.step()
 
-</details>
-
 #### 6.3 Overcoming the Challenges of Synchronous and Asynchronous Training
 
 Synchronous and asynchronous training methods have unique challenges, including efficiency, consistency, and resource utilization.
@@ -908,10 +801,6 @@ Getting efficient inference to work on a large scale is super important when we'
 **Model Quantization** reduces the precision of a model's parameters (e.g., from 32-bit floating-point to 8-bit integers). This reduction in precision may significantly decrease model size and potentially speed up inference by reducing the computational resources needed. *However, be cautious about the model [erformance (accuracy) reduction.*
 
 - **Static vs. Dynamic Quantization**: Static quantization converts weights to lower precision ahead of time, but dynamic quantization applies to weights and activations at runtime, offering a balance between performance and flexibility.
-
-  <details><summary><em>[Click to expand]</em></summary>
-  
-  <br>
   
   ```python
   
@@ -928,14 +817,8 @@ Getting efficient inference to work on a large scale is super important when we'
     )
     
     print(quantized_model)
-  
-</details>
 
 - **Post-Training vs. Quantization-Aware Training (QAT)**: Post-training quantization applies quantization after model training (may have more performance drop due to the blind precision reduction), whereas QAT simulates lower precision during training, often resulting in higher accuracy for the quantized model because the as it is obvious from its name, the model is aware of what we want and try to learn better with limited prevision.
-
-  <details><summary><em>[Click to expand]</em></summary>
-  
-  <br>
   
   ```python
   
@@ -959,17 +842,10 @@ Getting efficient inference to work on a large scale is super important when we'
   
   torch.quantization.convert(model, inplace=True)
   print(model)
-  
-  
-  </details>
 
 **Model Pruning** removes less important parameters from a model, either by zeroing out weights (sparisity enforcement on weights) or entirely removing certain neurons/channels.
 
 - **Structured vs. Unstructured Pruning**: Structured pruning removes entire channels or filters, simplifying deployment but often requiring retraining. Unstructured pruning zeroes individual weights, which can maximize efficiency but may require specialized hardware or software to exploit the sparsity. These appraoches can also be done dynamically in the training.
-
-  <details><summary><em>[Click to expand]</em></summary>
-    
-  <br>
   
   ```python
   
@@ -998,9 +874,6 @@ Getting efficient inference to work on a large scale is super important when we'
   prune.ln_structured(model[0], name='weight', amount=0.5, n=2, dim=0)
   
   print(model)
-  
-  
-  </details>
 
 #### 7.2 Optimizing Models for Inference on Different Platforms
 
