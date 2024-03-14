@@ -154,6 +154,11 @@ As things get bigger, making sure all your data and AI smarts stay accurate and 
 
 Planning for growth in AI systems is a bit like a giant puzzle where the picture keeps getting bigger. It's a challenge, but with the right approach, you can build a setup that grows with you.
 
+<p align="center">
+  <img src="asset/_img/optimizing-networking-distributed-training.png" width="80%" alt="AI Hardware Comparison Chart"/>
+</p>
+
+
 ### 2.3 Optimizing Networking for Distributed Training
 
 When you're training AI models across several computers, making sure they can talk to each other without any hiccups is super important. Here's how you keep the conversation flowing:
@@ -177,22 +182,6 @@ Your network needs to be able to handle more traffic as your project grows. Usin
 Keeping track of how your network's doing can help spot problems before they get serious. Tools that give you a heads-up about slowdowns or other issues can be a real lifesaver.
 
 Keeping your network in top shape means your AI training doesn't get bogged down, keeping everything running smoothly and efficiently.
-
-
-#### Q&A Section for Distributed Systems for AI
-
-#### Question: Why's distributed computing a big deal for AI?
-
-It's all about teamwork. With distributed computing, multiple computers work on the AI task together, making the whole process faster and more efficient. It's like having a whole team tackling a project instead of just one person.
-
-
-#### Question: What's the secret sauce in designing scalable AI systems?
-
-Planning ahead for growth is crucial. You need the right mix of tech that can handle more work without breaking a sweat, and strategies to make sure different parts of your AI can work together as things scale up.
-
-#### Question: How do you stop your network from being a bottleneck in AI training?
-
-Speed and reliability are key. You need to make sure data can move quickly and without interruptions, which might mean using better networks, keeping your machines close, or choosing faster ways to send data around.
 
 
 ---
