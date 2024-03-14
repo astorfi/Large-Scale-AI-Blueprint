@@ -12,6 +12,14 @@ AI is changing the world, and knowing how to scale AI models is more important t
 * Optimize Your Models: Find out how to make your AI models faster and leaner for better performance.
 * Deploy with Confidence: Get your AI models up and running smoothly in any environment.
 
+###  How to Contribute
+Got something to add? We'd love your help! Here's how you can contribute:
+
+- Share Your Knowledge: Got a tip or a trick? Share it with us through issues or pull requests.
+- Ask Questions or Start a Discussion: Not sure about something? Ask away! Our community is here to help.
+- Improve the Guide: See a typo or a mistake? Or maybe you want to add a whole new section? Go for it!
+
+
 ## Table of Contents
 
 ### Part I: Systems and Hardware for AI
@@ -69,9 +77,6 @@ AI is changing the world, and knowing how to scale AI models is more important t
   - [12.1 Best Practices for Monitoring System and Model Performance](#121-best-practices-for-monitoring-system-and-model-performance)
   - [12.2 Debugging AI Systems: Tools and Methodologies](#122-debugging-ai-systems-tools-and-methodologies)
   - [12.3 CI/CD Pipelines for Machine Learning](#123-cicd-pipelines-for-machine-learning)
-
-- [Conclusion](#conclusion)
-- [How to Contribute](#how-to-contribute)
 
 
 # Advanced Technical Guide to Large-Scale AI Training
@@ -1343,10 +1348,3 @@ By adopting CI/CD practices tailored to machine learning workflows, teams can ac
 
 ## Conclusion
 Thanks for exploring AI with us! We hope this guide helps you on your AI journey, whether you're building something new or improving what you already have. AI is a team sport, and we love seeing what the community comes up with. If you've got ideas or something cool to share, please do!
-
-##  How to Contribute
-Got something to add? We'd love your help! Here's how you can contribute:
-
-- Share Your Knowledge: Got a tip or a trick? Share it with us through issues or pull requests.
-- Ask Questions or Start a Discussion: Not sure about something? Ask away! Our community is here to help.
-- Improve the Guide: See a typo or a mistake? Or maybe you want to add a whole new section? Go for it!
