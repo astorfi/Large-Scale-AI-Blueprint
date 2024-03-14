@@ -909,43 +909,43 @@ Getting efficient inference to work on a large scale is super important when we'
 
 - **Static vs. Dynamic Quantization**: Static quantization converts weights to lower precision ahead of time, but dynamic quantization applies to weights and activations at runtime, offering a balance between performance and flexibility.
 
-<details><summary><em>Model Quantization and Pruning Examples</em></summary>
-
-<br>
-
-**Static model quantization**
-
-```python
-  import torch
-  from torchvision.models import resnet18
-  from torch.quantization import quantize_jit
+  <details><summary><em>[Click to expand]</em></summary>
   
-  model = resnet18(pretrained=True)
-  model.eval()
+  <br>
   
-  # Specify quantization configuration
-  # Convert to quantized model
-  quantized_model = torch.quantization.quantize_dynamic(
-      model, {torch.nn.Linear}, dtype=torch.qint8
-  )
+  **Static model quantization**
   
-  print(quantized_model)
-
-**  Dynamic Model Quantization**
-```python
-  import torch
-  from torchvision.models import resnet18
+  ```python
+    # Static model quantization
+    import torch
+    from torchvision.models import resnet18
+    from torch.quantization import quantize_jit
+    
+    model = resnet18(pretrained=True)
+    model.eval()
+    
+    # Specify quantization configuration
+    # Convert to quantized model
+    quantized_model = torch.quantization.quantize_dynamic(
+        model, {torch.nn.Linear}, dtype=torch.qint8
+    )
+    
+    print(quantized_model)
   
-  model = resnet18(pretrained=True)
-  model.eval()
+    # Dynamic Model Quantization
+    import torch
+    from torchvision.models import resnet18
+    
+    model = resnet18(pretrained=True)
+    model.eval()
+    
+    # Apply dynamic quantization
+    quantized_model = torch.quantization.quantize_dynamic(
+        model, {torch.nn.Linear, torch.nn.Conv2d}, dtype=torch.qint8
+    )
+    
+    print(quantized_model)
   
-  # Apply dynamic quantization
-  quantized_model = torch.quantization.quantize_dynamic(
-      model, {torch.nn.Linear, torch.nn.Conv2d}, dtype=torch.qint8
-  )
-  
-  print(quantized_model)
-
 </details>
 
 - **Post-Training vs. Quantization-Aware Training (QAT)**: Post-training quantization applies quantization after model training (may have more performance drop due to the blind precision reduction), whereas QAT simulates lower precision during training, often resulting in higher accuracy for the quantized model because the as it is obvious from its name, the model is aware of what we want and try to learn better with limited prevision.
