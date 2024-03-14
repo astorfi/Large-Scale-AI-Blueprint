@@ -72,6 +72,7 @@ AI is changing the world, and knowing how to scale AI models is more important t
   - [12.3 CI/CD Pipelines for Machine Learning](#123-cicd-pipelines-for-machine-learning)
 
 - [Conclusion](#conclusion)
+- [How to Contribute](#how-to-contribute)
 
 
 # Advanced Technical Guide to Large-Scale AI Training
