@@ -959,20 +959,6 @@ Balancing latency and throughput often involves trade-offs. Here's how you might
               output = model(batch)
           # Here, send 'output' wherever it needs to go
           input_queue.task_done()
-  
-  input_queue = Queue(maxsize=10)  # Adjust as necessary
-  worker = Thread(target=inference_worker, args=(input_queue,))
-  worker.start()
-  
-  # Dynamically adjust your batch size based on system load or other metrics
-  # For simplicity, we're just sending in dummy data
-  for _ in range(100):  # Example request loop
-      input_batch = torch.randn(5, 10)  # Example batch size of 5
-      input_queue.put(input_batch)
-  
-  # Clean up
-  input_queue.put(None)  # Signal the worker to exit
-  worker.join()
 
 In this simplified PyTorch example, we're setting up a system that can adjust how it handles requests based on the current load. This kind of setup allows you to manage throughput by batching requests together, without letting latency shoot through the roof. It's a basic illustration, but the principles apply: monitor your system's performance and adjust in real-time to keep both latency and throughput in check.
 
