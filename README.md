@@ -906,21 +906,21 @@ In the wild world of production, requests can come at you fast. Efficiently dist
 
 - **Resource Allocation**: Making the most of your hardware is also crucial. GPUs, with their parallel processing capabilities, are great for heavy lifting, but they're not always necessary for every task. Allocating resources based on the complexity of the request helps optimize costs and efficiency.
 
-```python
-# Example: Allocating a request to a GPU or CPU based on complexity in PyTorch
-import torch
-
-def allocate_inference(request):
-    """Simple example function to allocate inference to GPU or CPU."""
-    # Assume 'request' has an attribute 'complexity' which is a simple int
-    if request.complexity > 5:
-        device = torch.device("cuda:0")
-    else:
-        device = torch.device("cpu")
-    
-    # Load your model accordingly
-    model = your_model.to(device)
-    # Proceed with your inference
+  ```python
+  # Example: Allocating a request to a GPU or CPU based on complexity in PyTorch
+  import torch
+  
+  def allocate_inference(request):
+      """Simple example function to allocate inference to GPU or CPU."""
+      # Assume 'request' has an attribute 'complexity' which is a simple int
+      if request.complexity > 5:
+          device = torch.device("cuda:0")
+      else:
+          device = torch.device("cpu")
+      
+      # Load your model accordingly
+      model = your_model.to(device)
+      # Proceed with your inference
 
 ### 8.2 Managing Latency and Throughput for Real-Time Applications
 
@@ -940,39 +940,40 @@ When your machine learning model hits production, especially in real-time applic
 
 Balancing latency and throughput often involves trade-offs. Here's how you might dynamically adjust batch sizes in PyTorch to manage these trade-offs in a real-time application scenario:
 
-```python
-import torch
-from queue import Queue
-from threading import Thread
+  ```python
+  import torch
+  from queue import Queue
+  from threading import Thread
+  
+  # Dummy model for demonstration
+  model = torch.nn.Linear(10, 2)
+  model.eval()
+  
+  # Example of dynamically adjusting batch sizes based on system load
+  def inference_worker(input_queue):
+      while True:
+          batch = input_queue.get()
+          if batch is None:
+              break  # Exit condition
+          with torch.no_grad():
+              output = model(batch)
+          # Here, send 'output' wherever it needs to go
+          input_queue.task_done()
+  
+  input_queue = Queue(maxsize=10)  # Adjust as necessary
+  worker = Thread(target=inference_worker, args=(input_queue,))
+  worker.start()
+  
+  # Dynamically adjust your batch size based on system load or other metrics
+  # For simplicity, we're just sending in dummy data
+  for _ in range(100):  # Example request loop
+      input_batch = torch.randn(5, 10)  # Example batch size of 5
+      input_queue.put(input_batch)
+  
+  # Clean up
+  input_queue.put(None)  # Signal the worker to exit
+  worker.join()
 
-# Dummy model for demonstration
-model = torch.nn.Linear(10, 2)
-model.eval()
-
-# Example of dynamically adjusting batch sizes based on system load
-def inference_worker(input_queue):
-    while True:
-        batch = input_queue.get()
-        if batch is None:
-            break  # Exit condition
-        with torch.no_grad():
-            output = model(batch)
-        # Here, send 'output' wherever it needs to go
-        input_queue.task_done()
-
-input_queue = Queue(maxsize=10)  # Adjust as necessary
-worker = Thread(target=inference_worker, args=(input_queue,))
-worker.start()
-
-# Dynamically adjust your batch size based on system load or other metrics
-# For simplicity, we're just sending in dummy data
-for _ in range(100):  # Example request loop
-    input_batch = torch.randn(5, 10)  # Example batch size of 5
-    input_queue.put(input_batch)
-
-# Clean up
-input_queue.put(None)  # Signal the worker to exit
-worker.join()
 In this simplified PyTorch example, we're setting up a system that can adjust how it handles requests based on the current load. This kind of setup allows you to manage throughput by batching requests together, without letting latency shoot through the roof. It's a basic illustration, but the principles apply: monitor your system's performance and adjust in real-time to keep both latency and throughput in check.
 
 Remember, the goal here is not just fast responses or handling massive loads, but finding the sweet spot where your application does both well enough to meet your users' needs.
