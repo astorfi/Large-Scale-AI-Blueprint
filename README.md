@@ -913,7 +913,7 @@ Using these accelerators, in conjunction with optimized models and software fram
 **Now assume you have one year for optimizing a ML system for inference. The timeline should something like the following:**
 
 <p align="center">
-  <img src="asset/_img/advanced-model-inference-techniques.png" width="80%" alt="advanced-model-inference-techniques.png"/>
+  <img src="asset/_img/advanced-model-inference-techniques.png" width="95%" alt="advanced-model-inference-techniques.png"/>
   <br>
   <em> The life cyclle of optimizing for inference!</em>
 </p>
