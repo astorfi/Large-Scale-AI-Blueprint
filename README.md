@@ -818,7 +818,7 @@ Getting efficient inference to work on a large scale is super important when we'
 
 #### 7.1 Techniques for Model Quantization and Pruning
 
-**Model Quantization** reduces the precision of a model's parameters (e.g., from 32-bit floating-point to 8-bit integers). This reduction in precision may significantly decrease model size and potentially speed up inference by reducing the computational resources needed. *However, be cautious about the model [erformance (accuracy) reduction.*
+**Model Quantization** reduces the precision of a model's parameters (e.g., from 32-bit floating-point to 8-bit integers). This reduction in precision can significantly decrease model size and potentially speed up inference by reducing the computational resources needed. *However, be cautious about the model [erformance (accuracy) reduction.*
 
 - **Static vs. Dynamic Quantization**: Static quantization converts weights to lower precision ahead of time, but dynamic quantization applies to weights and activations at runtime, offering a balance between performance and flexibility.
   
@@ -909,10 +909,19 @@ Accelerators such as GPUs, TPUs, and FPGAs offer specialized computational capab
 
 - **GPUs**: Well-suited for parallelizable operations, making them ideal for accelerating large-scale matrix multiplications common in deep learning.
 - **TPUs**: Google's Tensor Processing Units are designed specifically for tensor operations, offering high throughput and efficiency for both training and inference phases of deep learning models.
-- **FPGAs**: Field-Programmable Gate Arrays provide a flexible hardware platform that can be configured to perform specific computations extremely efficiently, often used in custom, low-latency inference applications.
 
 Using these accelerators, in conjunction with optimized models and software frameworks, enables efficient scaling of AI inference tasks across a wide range of applications and deployment scenarios.
 
+**Now assume you have one year for optimizing a ML system for inference. The timeline should something like the following:**
+
+<p align="center">
+  <img src="asset/_img/advanced-model-inference-techniques.png" width="80%" alt="advanced-model-inference-techniques.png"/>
+  <br>
+  <em> The life cyclle of optimizing for inference!</em>
+</p>
+
+
+-----
 
 ### 8. Scaling Inference in Production
 
