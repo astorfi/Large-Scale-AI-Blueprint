@@ -294,9 +294,9 @@ The following table compares various optimization algorithms that extend beyond 
 | **L-BFGS** | A quasi-Newton method that is more memory efficient than the full BFGS algorithm. | Small to medium-sized problems where precise control over model updates is necessary. |
 | **Conjugate Gradient** | Optimizes using line searches to find optimal step sizes, suitable for sparse problems. | Large-scale problems where the Hessian matrix is sparse and derivative evaluations are costly. |
   
-This comparison aims to guide machine learning engineers in selecting the most suitable optimizer based on the specific characteristics and requirements of their training scenarios.
+The above comparison aims to provide a guide for machine learning engineers in selecting the most suitable optimizer based on the specific characteristics and requirements of their training scenarios.
 
-**NOTE:** Most of the times I start with Adam! Although there are differences, but it's important to start with something and get some initial sense!
+**NOTE:** Most we can safely start with Adam! Although there are differences, but it's important to start with something and get some initial sense!
 
 #### 4.2 Regularization and Generalization Techniques
 
@@ -331,7 +331,7 @@ Regularization techniques are critical for preventing overfitting and ensuring m
             return x
     ```
 
-- **Early Stopping** is implemented by monitoring the validation loss and stopping training when it starts to increase. Some code for early stopping:
+- **Early Stopping** is implemented by monitoring the validation loss and stopping training when it starts to increase with some criteria (because what's the point of continuing the training if validation loss is unlikely to improve). Some code for early stopping:
 
   ```python
   best_loss = float('inf')
@@ -356,7 +356,7 @@ Regularization techniques are critical for preventing overfitting and ensuring m
 
 Training ultra-large models presents unique challenges, particularly in managing computational resources and ensuring effective learning.
 
-- **Model Parallelism**: Splits a model across multiple GPUs, allowing different parts of the model to be processed in parallel. This technique requires a deliberate division of the model's architecture across the available hardware.
+- **Model Parallelism**: Splits a model across multiple GPUs, which allows different parts of the model to be processed in parallel. This technique requires a careful division of the model's architecture across the available hardware.
 
     ```python
     class ModelParallelResNet50(ResNet):
@@ -387,7 +387,7 @@ Training ultra-large models presents unique challenges, particularly in managing
           return self.fc(x.view(x.size(0), -1))
 
 
-- **Data Parallelism**: PyTorch's `DataParallel` allows for the automatic distribution of data and model training across multiple GPUs, aggregating the results to improve training efficiency and manage larger datasets.
+- **Data Parallelism**: PyTorch's `DataParallel` allows for the automatic distribution of data and model training across multiple GPUs, aggregating the results to improve training efficiency and manage larger datasets. This is commonly used as the standard approach to make the best of available hardware.
 
     ```python
     from torch.nn import DataParallel
@@ -412,7 +412,7 @@ Training ultra-large models presents unique challenges, particularly in managing
     ```
 
 
-- **Federated Learning**: A training approach that allows for model training across multiple decentralized devices or servers while keeping the data localized. This method is particularly useful for privacy-preserving models.
+- **Federated Learning**: A training approach that allows for model training across multiple decentralized devices or servers while keeping the data localized. This method is particularly useful for privacy-preserving models and is attracting a lot of attentions.
 
     ```python
     # Pseudo-code for federated learning setup
@@ -430,7 +430,7 @@ Training ultra-large models presents unique challenges, particularly in managing
 
     Federated learning implementations often rely on frameworks specifically designed for distributed computing, such as PySyft for PyTorch.
 
-- **Knowledge Distillation**: The process of transferring knowledge from a large, complex model (teacher) to a smaller, more efficient one (student). This method can significantly compress model size at the hope of retaining performance.
+- **Knowledge Distillation**: The process of transferring knowledge from a large, complex model (teacher) to a smaller, more efficient one (student). This method can significantly compress model size at the hope of retaining performance!
 
     ```python
     import torch
@@ -456,9 +456,6 @@ Take a look at the following comparison table:
 | **Pipeline Parallelism** | Splits the model into segments (stages) executed in pipeline across devices. | Reduces idle time of devices by overlapping computation across stages. | Additional complexity in splitting models and managing pipeline stages. | Extremely large models where both model and data parallelism are insufficient. |
 | **Zero Redundancy Optimizer (ZeRO)** | Optimizes memory usage across distributed settings, reducing redundancies. | Dramatically reduces memory requirements, enabling larger models or batches. | Requires specific implementation and infrastructure support. | Training state-of-the-art models requiring extensive memory optimization. |
 
-
-
-These strategies, from leveraging multiple GPUs for parallel processing to utilizing advanced techniques like federated learning and knowledge distillation, enable the training of ultra-large models more effectively and efficiently. 
 
 ---
 
