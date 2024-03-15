@@ -461,7 +461,7 @@ Take a look at the following comparison table:
 
 ### 5. Frameworks and Tools for Large-Scale Training
 
-Explore a variety of frameworks and tools designed to efficiently scale the training processes for large models and datasets, including those from TensorFlow, PyTorch, Horovod, Kubernetes, and specialized solutions by NVIDIA, Meta, Google, and Amazon.
+Here we explore a variety of frameworks and tools designed to efficiently scale the training processes for large models and datasets, including those from TensorFlow, PyTorch, Horovod, Kubernetes, and specialized solutions by NVIDIA, Meta, Google, and Amazon.
 
 #### 5.1 Scaling Up with TensorFlow and PyTorch
 
@@ -485,7 +485,7 @@ TensorFlow and PyTorch offer comprehensive support for large-scale model trainin
   - **CUDA, cuDNN**: Accelerate GPU computing and deep learning. [Learn more about CUDA](https://developer.nvidia.com/cuda-zone). [cuDNN](https://developer.nvidia.com/cudnn).
   - **NeMo**: Specializes in speech and NLP model creation. [Learn more](https://developer.nvidia.com/nemo).
 
-- **Meta (Facebook)**:
+- **Meta**:
   - Supports AI with PyTorch, Detectron, and more. [PyTorch](https://pytorch.org/), [Detectron](https://github.com/facebookresearch/detectron).
 
 - **Google**:
@@ -494,7 +494,7 @@ TensorFlow and PyTorch offer comprehensive support for large-scale model trainin
 - **Amazon**:
   - Features Amazon SageMaker and AWS Inferentia for scalable model training and deployment. [Amazon SageMaker](https://aws.amazon.com/sagemaker/), [AWS Inferentia](https://aws.amazon.com/machine-learning/inferentia/).
 
-This guide introduces a spectrum of frameworks and tools for managing deep learning models at scale. Selection depends on project-specific needs, from computational demands to model complexity.
+This guide introduces a spectrum of frameworks and tools for managing deep learning models at scale. Selection depends on project-specific needs, from computational demands to model complexity. Also let's not forget i greatly depends on the preference of the organization that is working on the specific project.
 
 
 For more info, read [this awsome post](https://neptune.ai/blog/distributed-training-frameworks-and-tools).
