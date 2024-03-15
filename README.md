@@ -5,12 +5,10 @@ Welcome! This guide is perfect for anyone who wants to learn more about making A
 ##  Introduction
 This guide covers everything from picking the right hardware to using the best software tools, and from training big AI models to making sure they run smoothly once they're deployed. AI is changing the world, and knowing how to scale AI models is more important than ever.  Especially with the advent of Generative AI, foundational models and LLMs, everything is about speed and efficiency now.
 
-[Traditional AI Models vs Foundation Models]((https://www.nocode.ai/traditional-ai-vs/#:~:text=While%20traditional%20models%20offer%20transparency,pattern%20recognition%20and%20nuanced%20understanding)
-
 <p align="center">
   <img src="asset/_img/foundational_models.gif" width="80%" alt="AI Hardware Comparison Chart"/>
   <br>
-  <em> Ref: [Traditional AI Models vs Foundation Models](https://www.nocode.ai/traditional-ai-vs/#:~:text=While%20traditional%20models%20offer%20transparency,pattern%20recognition%20and%20nuanced%20understanding)</em>
+  <em> Ref: [Traditional AI Models vs Foundation Models](https://www.nocode.ai/traditional-ai-vs/)</em>
 </p>
 
 **The assption here is that you already have some good machine learning and deep learning background!**
