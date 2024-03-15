@@ -927,7 +927,7 @@ When you've got your machine learning model trained and ready to go, the next bi
 
 #### 8.1 Load Balancing and Resource Allocation for Inference
 
-In the wild world of production, requests can come at you fast. Efficiently distributing these requests across your available resources is key to maintaining performance. This is where load balancing comes into play, ensuring that no single server gets overwhelmed.
+In the wild world of production, requests can come at you fast. Efficiently distributing these requests across your available resources is most important thing to maintaining performance. This is where load balancing comes into play, which promises that no single server gets overwhelmed. However, if we do not do it correctly, it would be a false promise!
 
 - **Adaptive Load Balancing**: This technique dynamically adjusts the distribution of inference requests based on the current load of each server. It's like having a smart traffic cop that directs cars (requests) down the least congested road (server).
 
@@ -953,10 +953,16 @@ In the wild world of production, requests can come at you fast. Efficiently dist
 
 When your machine learning model hits production, especially in real-time applications, you're playing a balancing game with latency and throughput. Latency is how long it takes to get an answer back from your model, while throughput is about how many answers you can get in a set period. Both are super important, but improving one can sometimes mean sacrificing the other. Let's unpack how you can tackle this, without the jargon.
 
+<p align="center">
+  <img src="asset/_img/managing-latency-throughput.png" width="80%" alt="advanced-model-inference-techniques.png"/>
+  <br>
+</p>
+
+
 **Latency:** This is all about speed. In real-time apps, users or other systems are waiting on the spot for your model to do its thing. Keeping this wait time minimal is crucial.
 
-- **Optimize Your Model:** Trimming down your model with techniques like quantization and pruning can help it make decisions faster, without cutting corners on accuracy.
-- **Efficient Serving:** How you serve your model — the software and hardware combo you use — can make a big difference. Think of using specialized hardware like GPUs when needed or optimizing your serving layer for quick responses.
+- **Optimize Your Model:** Trimming down your model with techniques like quantization and pruning can help it make decisions faster, hopefully without cutting corners on accuracy!! Take a look at some of the previous sections that we discussed this.
+- **Efficient Serving:** How you serve your model — the software and hardware combo you use — can make a big difference. Think of using specialized hardware like GPUs when needed or optimizing your serving layer for quick responses. This is a big topic on its own, how to serve models how to serve models efficiently? [There are great tools for that](https://neptune.ai/blog/ml-model-serving-best-tools)! Example of which is [TorchServe](https://pytorch.org/serve/)!
 
 **Throughput:** This is about volume. How many requests can your model handle at once? Maximizing this is key when demand spikes.
 
