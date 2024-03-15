@@ -802,6 +802,13 @@ Synchronous and asynchronous training methods have unique challenges, including 
 
 Both strategies require careful consideration of the trade-offs between efficiency, accuracy, and training time. Balancing these factors is key to achieving scalable and effective model training processes.
 
+| Aspect                                | Description                                                                                                                | Key Points                                                                                                      |
+|:--------------------------------------|:---------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------|
+| Model and Data Parallelism            | Dividing a model's architecture or distributing data across multiple processors to enable parallel processing.             | - Partitioning strategy (vertical or horizontal)<br>- Minimizing communication overhead<br>- Synchronizing operations to manage dependencies |
+| Batch Processing Techniques           | Techniques to efficiently process data in batches to maximize throughput and minimize training time.                       | - Dynamic batching to match hardware capabilities<br>- Mixed precision training to reduce memory usage and increase speed<br>- Gradient accumulation for larger batch simulation |
+| Synchronous vs. Asynchronous Training | Strategies for updating model parameters, either by waiting for all workers (synchronous) or independently (asynchronous). | - Synchronous training for consistency but may be slow due to stragglers<br>- Asynchronous training for faster iteration times but risks inconsistency<br>- Solutions include gradient averaging, predictive speculation, and adaptive batching |
+
+-----
 
 ## Part III: Advanced Model Inference Techniques
 
