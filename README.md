@@ -10,7 +10,7 @@ This guide covers everything from picking the right hardware to using the best s
 <p align="center">
   <img src="asset/_img/foundational_models.gif" width="80%" alt="AI Hardware Comparison Chart"/>
   <br>
-  <em> Ref: [Traditional AI Models vs Foundation Models](https://www.nocode.ai/traditional-ai-vs/)</em>
+  Ref: [Traditional AI Models vs Foundation Models](https://www.nocode.ai/traditional-ai-vs/)
 </p>
 
 **The assption here is that you already have some good machine learning and deep learning background!**
