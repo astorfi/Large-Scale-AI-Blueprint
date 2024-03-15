@@ -1052,20 +1052,20 @@ Optimizing AI models for edge deployment involves a careful balance between mode
 
 #### 10.1 Profiling and Benchmarking AI Systems
 
-In the quest to optimize AI systems for peak performance, two crucial processes stand out: profiling and benchmarking. These techniques are indispensable for engineers looking to understand an AI system's behavior in depth, identify bottlenecks, and evaluate the efficiency of optimizations.
+To optimize AI systems for peak performance,  the are two crucial processes: **profiling** and **benchmarking**. These techniques are very important for engineers looking to understand a system's behavior in depth, identify bottlenecks to suggest a solution, and evaluate the efficiency of optimizations.
 
-**Profiling:** This is about gathering data on how your AI system operates, focusing on resource usage (CPU, GPU, memory) and execution time. Profiling helps pinpoint which parts of your code are consuming the most resources or taking the longest to execute. It's like having a detailed map of your system's performance landscape, highlighting areas that are ripe for optimization.
+**Profiling:** This is about gathering data on how our AI system operates, focusing on resource usage (CPU, GPU, memory) and execution time for each part. Profiling helps finding which parts of the code are consuming the most resources or taking the longest to execute. It's like having a detailed map of the system's performance landscape, and highlighting areas that can be sunject to optimization.
 
-- **Python's `cProfile`:** A built-in module that provides a wealth of information on the execution time of various parts of your Python code, helping identify slow functions.
+- **Python's `cProfile`:** A built-in module that provides a great level of information on the execution time of various parts of your Python code, helping to identify which parts are slow.
 - **NVIDIA's Nsight Systems:** For those leveraging NVIDIA GPUs, Nsight Systems offers a comprehensive view of your system's performance, tracking down GPU bottlenecks and inefficiencies in CUDA applications.
 
-**Benchmarking:** While profiling provides a micro-level view of where your system spends its time and resources, benchmarking zooms out to measure the overall performance of your system against established metrics or standards. This could involve running a set of predefined tasks and comparing the results with those of other systems or previous versions of your own system. Benchmarking provides a quantitative baseline for performance, offering a clear target for optimizations and a means to measure progress.
+**Benchmarking:** While profiling provides a micro-level view of where your system spends its time and resources, benchmarking take a higher level look at the overall performance of the system against established metrics or standards. This could involve running a set of predefined tasks and comparing the results with those of other systems or previous versions of our own system. Benchmarking provides a quantitative baseline for performance, offering a clear target for optimizations and a means to measure progress. **This is very important because we desire to optimize speed just enough and maybe not more!**
 
-- **Establishing Baselines:** Before diving into optimization, it's essential to benchmark your system's current performance. This baseline serves as a reference point for future improvements.
-- **Comparative Analysis:** Use benchmarking to compare your system's performance with that of similar systems or industry standards. This comparison can help identify areas where your system lags and could benefit from optimization.
-- **Measuring Impact:** After implementing optimizations, benchmarking allows you to quantitatively assess the impact of your changes. This helps validate the effectiveness of optimizations and ensures that they deliver the expected performance improvements.
+- **Establishing Baselines:** Before diving into optimization, it's essential to benchmark your system's current performance. This baseline serves as a reference point as we dicussed.
+- **Comparative Analysis:** Use benchmarking to compare your system's performance with that of similar systems or industry standards. With this your can estimate where you're standing!
+- **Measuring Impact:** After implementing optimizations, benchmarking allows you to quantitatively assess the impact of your changes. This validate the effectiveness of optimizations. We keep doing this until we get to a point that we are confident that the system is optimized enough with the benchmarking metrics. 
 
-Both profiling and benchmarking are iterative processes. As you make changes to optimize your AI system, you'll want to continuously profile to identify new bottlenecks and benchmark to measure the impact of your optimizations. Together, these practices empower machine learning engineers to systematically improve their AI systems, enhancing efficiency, reducing resource consumption, and speeding up execution times. Embracing these techniques is essential for developing high-performing, scalable AI applications that meet the demands of real-world usage.
+*Note the both profiling and benchmarking are iterative processes. So usually it may not work in one shot!*
 
 
 #### 10.2 Identifying and Addressing Compute, Memory, and Network Bottlenecks
