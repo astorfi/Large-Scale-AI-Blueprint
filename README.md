@@ -1,4 +1,4 @@
-# Advanced Technical Guide to Large-Scale AI
+# Large-Scale-AI-Blueprint
 
 Welcome! This guide is perfect for anyone who wants to learn more about making AI models, making them better and faster, and getting them to work in the real world.
 
