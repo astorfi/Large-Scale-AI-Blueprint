@@ -2,6 +2,9 @@
 
 Welcome! This guide is perfect for anyone who wants to learn more about making AI models, making them better and faster, and getting them to work in the real world.
 
+<iframe src="https://roadmap.sh/r/embed?id=65f5d4b5275ac16edcbd3d3c" width="100%" height="500px" frameBorder="0"
+></iframe>
+
 ##  Introduction
 This guide covers everything from picking the right hardware to using the best software tools, and from training big AI models to making sure they run smoothly once they're deployed. AI is changing the world, and knowing how to scale AI models is more important than ever.  Especially with the advent of Generative AI, foundational models and LLMs, everything is about speed and efficiency now.
 
