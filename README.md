@@ -1,6 +1,8 @@
 # Large-Scale-AI-Blueprint
 
-Welcome! This guide is perfect for anyone who wants to learn more about making AI models, making them better and faster, and getting them to work in the real world.
+Welcome! This guide is perfect for anyone who wants to learn more about making AI models, making them better and faster, and getting them to work in the real world. You see the roadmap below:
+
+Created by author using [https://roadmap.sh/](https://roadmap.sh/), observable with [this link](https://roadmap.sh/r?id=65f5d4b5275ac16edcbd3d3c).
 
 <p align="center">
   <img src="asset/_img/roadmap.png" width="80%" alt="AI Hardware Comparison Chart"/>
