@@ -61,6 +61,8 @@ Got something to add? We'd love your help! Here's how you can contribute:
   - [7.1 Techniques for Model Quantization and Pruning](#71-techniques-for-model-quantization-and-pruning)
   - [7.2 Optimizing Models for Inference on Different Platforms](#72-optimizing-models-for-inference-on-different-platforms)
   - [7.3 Leveraging Accelerators for Faster Inference](#73-leveraging-accelerators-for-faster-inference)
+  - [7.4 LLMs Inference Optimization Example](#73-llms-inference-optimization-example)
+
 - [8. Scaling Inference in Production](#8-scaling-inference-in-production)
   - [8.1 Load Balancing and Resource Allocation for Inference](#81-load-balancing-and-resource-allocation-for-inference)
   - [8.2 Managing Latency and Throughput for Real-Time Applications](#82-managing-latency-and-throughput-for-real-time-applications)
@@ -923,6 +925,65 @@ Using these accelerators, in conjunction with optimized models and software fram
   <br>
   <em> The life cyclle of optimizing for inference!</em>
 </p>
+
+#### 7.4 LLMs Inference Optimization Example
+
+```python
+import torch
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+import time
+
+def setup_model(optimized=True):
+    # Load tokenizer
+    tokenizer = AutoTokenizer.from_pretrained("facebook/opt-350m")
+
+    # Setup model with or without optimizations
+    if optimized:
+        # Load model with 4-bit quantization
+        quantization_config = BitsAndBytesConfig(
+            load_in_4bit=True,
+            bnb_4bit_compute_dtype=torch.float16
+        )
+        model = AutoModelForCausalLM.from_pretrained("facebook/opt-350m", quantization_config=quantization_config)
+        # Enable BetterTransformer backend
+        model = model.to_bettertransformer()
+    else:
+        # Load standard model without optimizations
+        model = AutoModelForCausalLM.from_pretrained("facebook/opt-350m")
+
+    return tokenizer, model.to("cuda")
+
+def generate_text(model, tokenizer, input_text, use_flash_attention=False):
+    inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
+    
+    if use_flash_attention:
+        # Use FlashAttention if enabled
+        with torch.backends.cuda.sdp_kernel(enable_flash=True, enable_math=False, enable_mem_efficient=False):
+            outputs = model.generate(**inputs)
+    else:
+        outputs = model.generate(**inputs)
+
+    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+
+def measure_performance(input_text, optimized=True, use_flash_attention=False):
+    tokenizer, model = setup_model(optimized)
+
+    start_time = time.time()
+    result_text = generate_text(model, tokenizer, input_text, use_flash_attention)
+    end_time = time.time()
+
+    print(f"Generated Text: {result_text}")
+    print(f"Time Taken: {end_time - start_time:.2f} seconds")
+
+# Example input text
+input_text = "Hello my dog is cute and"
+
+print("Running optimized version:")
+measure_performance(input_text, optimized=True, use_flash_attention=True)
+
+print("\nRunning unoptimized version:")
+measure_performance(input_text, optimized=False, use_flash_attention=False)
+```
 
 
 -----
