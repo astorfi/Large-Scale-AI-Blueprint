@@ -61,7 +61,7 @@ Got something to add? We'd love your help! Here's how you can contribute:
   - [7.1 Techniques for Model Quantization and Pruning](#71-techniques-for-model-quantization-and-pruning)
   - [7.2 Optimizing Models for Inference on Different Platforms](#72-optimizing-models-for-inference-on-different-platforms)
   - [7.3 Leveraging Accelerators for Faster Inference](#73-leveraging-accelerators-for-faster-inference)
-  - [7.4 LLMs Inference Optimization Example](#73-llms-inference-optimization-example)
+  - [7.4 LLMs Inference Optimization Example](#74-llms-inference-optimization-example)
 
 - [8. Scaling Inference in Production](#8-scaling-inference-in-production)
   - [8.1 Load Balancing and Resource Allocation for Inference](#81-load-balancing-and-resource-allocation-for-inference)
